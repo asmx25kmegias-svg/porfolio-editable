@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Megias Alvarez — Portafolio Técnico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+    </script>
+    <style>
+        ::selection{background:#1c1917;color:#fff}
+        .no-scrollbar::-webkit-scrollbar{display:none}
+        .no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+        .reveal{transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+        .reveal.hide-reveal{opacity:0;transform:translateY(30px)}
+        .reveal.active{opacity:1;transform:translateY(0)}
+        .reveal-delay-1{transition-delay:.1s}
+        .reveal-delay-2{transition-delay:.2s}
+        .reveal-delay-3{transition-delay:.3s}
+        .reveal-delay-4{transition-delay:.4s}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fadeInScale{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+        @keyframes pulse-ring{0%{transform:scale(.9);opacity:.5}100%{transform:scale(1.3);opacity:0}}
+        .animate-fade-in-up{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) forwards}
+        .animate-fade-in-up-delay{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) .2s forwards;opacity:0}
+        .animate-fade-in-up-delay-2{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) .4s forwards;opacity:0}
+        .animate-fade-in-scale{animation:fadeInScale 1s cubic-bezier(.16,1,.3,1) .3s forwards;opacity:0}
+        .animate-float{animation:float 6s ease-in-out infinite}
+        .animate-float-delay{animation:float 6s ease-in-out 2s infinite}
+        .glass{background:rgba(255,255,255,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.5)}
+        .glass-dark{background:rgba(28,25,23,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08)}
+        .skill-bar{height:6px;border-radius:999px;background:#e7e5e4;overflow:hidden}
+        .skill-bar-fill{height:100%;border-radius:999px;background:#1c1917;transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+        .skill-bar-fill.active{transform:scaleX(1)}
+        .nav-link{position:relative;transition:color .3s}
+        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#1c1917;border-radius:999px;transition:width .3s cubic-bezier(.16,1,.3,1)}
+        .nav-link.active::after,.nav-link:hover::after{width:100%}
+        .availability-dot{position:relative}
+        .availability-dot::before{content:'';position:absolute;inset:-3px;border-radius:999px;background:#22c55e;animation:pulse-ring 2s ease-out infinite}
+        .tab-btn{transition:all .3s cubic-bezier(.16,1,.3,1)}
+        .tab-btn.active{background:#1c1917;color:#fff;box-shadow:0 10px 15px -3px rgba(28,25,23,.15)}
+        .tab-content{display:none;animation:fadeInUp .5s cubic-bezier(.16,1,.3,1)}
+        .tab-content.active{display:block}
+        .accordion-content{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1),padding .3s}
+        .accordion-content.open{max-height:500px}
+        .accordion-icon{transition:transform .4s cubic-bezier(.16,1,.3,1)}
+        .accordion-icon.open{transform:rotate(45deg)}
+        .modal-overlay{opacity:0;pointer-events:none;transition:opacity .3s}
+        .modal-overlay.open{opacity:1;pointer-events:auto}
+        .modal-panel{transform:translateY(30px) scale(.95);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+        .modal-overlay.open .modal-panel{transform:translateY(0) scale(1)}
+        html{scroll-behavior:smooth}
+        .hover-card{transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+        .hover-card:hover{transform:translateY(-6px);box-shadow:0 25px 50px -12px rgba(0,0,0,.1)}
+        .toast{transform:translateY(20px);opacity:0;transition:all .4s cubic-bezier(.16,1,.3,1)}
+        .toast.show{transform:translateY(0);opacity:1}
+
+        /* === EDITOR === */
+        .edit-img-wrap{position:relative;cursor:pointer}
+        .edit-img-wrap .edit-img-ov{position:absolute;inset:0;z-index:30;background:rgba(28,25,23,.55);backdrop-filter:blur(4px);display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:inherit;transition:background .2s}
+        body.edit-on .edit-img-wrap .edit-img-ov{display:flex}
+        body.edit-on .edit-img-wrap{outline:3px dashed rgba(28,25,23,.3);outline-offset:4px;border-radius:inherit}
+        body.edit-on .edit-img-wrap:hover .edit-img-ov{background:rgba(28,25,23,.7)}
+
+        body.edit-on [data-eid]{outline:2px dashed rgba(59,130,246,.35);outline-offset:3px;border-radius:4px;cursor:text;transition:outline-color .2s,background .2s}
+        body.edit-on [data-eid]:hover{outline-color:rgba(59,130,246,.65);background:rgba(59,130,246,.04)}
+        body.edit-on [data-eid]:focus{outline:2px solid rgba(59,130,246,.8);background:rgba(59,130,246,.07)}
+
+        .epanel{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;background:#1c1917;border-radius:1.25rem;padding:10px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 25px 60px -12px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08);transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .3s;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 32px)}
+        .epanel.away{transform:translateX(-50%) translateY(120px);opacity:0;pointer-events:none}
+        .ebtn{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:7px 14px;border-radius:10px;border:none;cursor:pointer;transition:all .25s;white-space:nowrap}
+        .ebtn-g{background:rgba(255,255,255,.08);color:#fff}
+        .ebtn-g:hover{background:rgba(255,255,255,.15)}
+        .ebtn-p{background:#fff;color:#1c1917}
+        .ebtn-p:hover{background:#f5f5f4;transform:translateY(-1px)}
+        .ebtn-d{background:rgba(239,68,68,.12);color:#fca5a5}
+        .ebtn-d:hover{background:rgba(239,68,68,.22)}
+        .edot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.5);flex-shrink:0}
+        .edot.off{background:#78716c;box-shadow:none}
+        .ecount{background:rgba(255,255,255,.08);color:#fff;font-size:10px;font-weight:600;padding:3px 9px;border-radius:7px;white-space:nowrap}
+        @keyframes editPulse{0%,100%{opacity:1}50%{opacity:.4}}
+        body.edit-on .edit-img-ov .epulse{animation:editPulse 2s ease-in-out infinite}
+
+        .edit-banner{position:fixed;top:64px;left:0;right:0;z-index:45;background:rgba(59,130,246,.08);backdrop-filter:blur(8px);border-bottom:1px solid rgba(59,130,246,.15);padding:8px 16px;text-align:center;font-size:12px;font-weight:500;color:rgba(59,130,246,.8);display:none;transform:translateY(-100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+        body.edit-on .edit-banner{display:block;transform:translateY(0)}
+    </style>
+</head>
+<body class="bg-[#F2F2F2] font-sans text-stone-900 antialiased">
+
+<!-- BANNER EDICIÓN -->
+<div class="edit-banner">
+    <span class="iconify inline-block w-3.5 h-3.5 mr-1 align-[-3px]" data-icon="lucide:pencil-line"></span>
+    Modo edición — Haz clic en <strong>textos subrayados en azul</strong> o <strong>fotos con cámara</strong> para editarlos
+</div>
+
+<!-- NAVEGACIÓN -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+            <a href="#hero" class="flex items-center gap-2 group">
+                <div class="w-9 h-9 rounded-xl bg-stone-900 flex items-center justify-center text-white font-semibold text-sm group-hover:scale-105 transition-transform duration-300">KM</div>
+                <span class="hidden sm:block font-medium text-sm tracking-tight">Kevin Megias</span>
+            </a>
+            <div class="hidden md:flex items-center bg-white/70 backdrop-blur-xl rounded-full px-2 py-1.5 border border-stone-200/50 shadow-sm">
+                <a href="#sobre-mi" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Sobre mí</a>
+                <a href="#habilidades" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Habilidades</a>
+                <a href="#experiencia" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Experiencia</a>
+                <a href="#formacion" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Formación</a>
+                <a href="#contacto" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Contacto</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="hidden sm:flex items-center gap-2 text-xs font-medium text-stone-500">
+                    <span class="relative flex h-2.5 w-2.5"><span class="availability-dot absolute inline-flex h-full w-full rounded-full bg-green-500"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span></span>
+                    Disponible
+                </div>
+                <a href="#contacto" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-stone-800 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">Hablemos</a>
+                <button id="mobileMenuBtn" class="md:hidden w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center border border-stone-200/50"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:menu"></span></button>
+            </div>
+        </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden bg-white/90 backdrop-blur-xl border-t border-stone-200/50 px-4 py-4">
+        <a href="#sobre-mi" class="block py-3 text-sm font-medium text-stone-600 hover:text-stone-900 mobile-nav-link">Sobre mí</a>
+        <a href="#habilidades" class="block py-3 text-sm font-medium text-stone-600 hover:text-stone-900 mobile-nav-link">Habilidades</a>
+        <a href="#experiencia" class="block py-3 text-sm font-medium text-stone-600 hover:text-stone-900 mobile-nav-link">Experiencia</a>
+        <a href="#formacion" class="block py-3 text-sm font-medium text-stone-600 hover:text-stone-900 mobile-nav-link">Formación</a>
+        <a href="#contacto" class="block py-3 text-sm font-medium text-stone-600 hover:text-stone-900 mobile-nav-link">Contacto</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="relative flex items-center overflow-hidden" style="min-height:100vh;min-height:100dvh">
+    <div class="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-stone-300/30 blur-[100px] pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-stone-200/50 blur-[80px] pointer-events-none"></div>
+    <div class="absolute top-32 right-[15%] w-16 h-16 rounded-2xl bg-stone-900/5 animate-float pointer-events-none hidden lg:block"></div>
+    <div class="absolute bottom-40 right-[25%] w-10 h-10 rounded-full bg-stone-300/40 animate-float-delay pointer-events-none hidden lg:block"></div>
+    <div class="absolute top-[45%] left-[8%] w-12 h-12 rounded-xl bg-stone-200/60 animate-float pointer-events-none hidden lg:block"></div>
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 w-full py-32">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div class="lg:col-span-7 space-y-8">
+                <div class="animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-stone-200/50 mb-6">
+                        <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" style="animation:pulse-ring 1.5s ease-out infinite"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
+                        <span class="text-xs font-semibold text-stone-600 tracking-wide uppercase">Disponibilidad inmediata</span>
+                    </div>
+                </div>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-[-0.05em] leading-[0.95] animate-fade-in-up">
+                    <span data-eid="hero-greeting">¡Hola! Soy</span><br>
+                    <span class="text-stone-400" data-eid="hero-first">Kevin</span>
+                    <span class="inline-block ml-2" data-eid="hero-last">Megias</span>
+                </h1>
+                <p class="text-lg sm:text-xl font-light text-stone-500 leading-relaxed max-w-xl animate-fade-in-up-delay" data-eid="hero-desc">Técnico en Sistemas Microinformáticos y Redes, con experiencia real en desarrollo web e investigación. Preparado para aportar soluciones técnicas desde el primer día.</p>
+                <div class="flex flex-wrap gap-4 animate-fade-in-up-delay-2">
+                    <a href="#contacto" class="inline-flex items-center gap-2 bg-stone-900 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-stone-800 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">Contactar ahora <span class="iconify w-4 h-4" data-icon="lucide:arrow-right"></span></a>
+                    <a href="#sobre-mi" class="inline-flex items-center gap-2 bg-white text-stone-700 text-sm font-medium px-7 py-3.5 rounded-full border border-stone-200 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Conóceme <span class="iconify w-4 h-4" data-icon="lucide:chevron-down"></span></a>
+                </div>
+                <div class="flex gap-8 pt-4 animate-fade-in-up-delay-2">
+                    <div><div class="text-2xl font-semibold tracking-tight">SMX</div><div class="text-xs text-stone-400 mt-1">Título oficial</div></div>
+                    <div class="w-px bg-stone-200"></div>
+                    <div><div class="text-2xl font-semibold tracking-tight">4<span class="text-stone-400 text-lg"> meses</span></div><div class="text-xs text-stone-400 mt-1">Experiencia FCT</div></div>
+                    <div class="w-px bg-stone-200"></div>
+                    <div><div class="text-2xl font-semibold tracking-tight">3</div><div class="text-xs text-stone-400 mt-1">Idiomas</div></div>
+                </div>
+            </div>
+            <div class="lg:col-span-5 relative animate-fade-in-scale">
+                <div class="edit-img-wrap relative h-[420px] sm:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl" data-img-label="Foto principal — Hero">
+                    <img src="https://picsum.photos/seed/kevin-tech-workspace/800/1000.jpg" alt="Espacio de trabajo técnico" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                    <div class="edit-img-ov rounded-[2rem]">
+                        <span class="iconify w-7 h-7 text-white epulse" data-icon="lucide:camera"></span>
+                        <span class="text-white text-xs font-medium epulse">Cambiar foto</span>
+                    </div>
+                    <div class="absolute bottom-6 left-6 right-6 glass-dark rounded-2xl p-5 z-10 pointer-events-none">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center"><span class="iconify w-5 h-5 text-white" data-icon="lucide:code-2"></span></div>
+                            <div><div class="text-white text-sm font-medium">Técnico Especializado</div><div class="text-white/50 text-xs">Redes · Hardware · Desarrollo</div></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">Windows</span>
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">Linux</span>
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">RScript</span>
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">LAN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone-400 animate-bounce">
+        <span class="text-[10px] uppercase tracking-widest font-medium">Scroll</span>
+        <span class="iconify w-4 h-4" data-icon="lucide:chevron-down"></span>
+    </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi" class="py-24 sm:py-32">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <div class="lg:col-span-5 reveal">
+                <div class="relative">
+                    <div class="edit-img-wrap rounded-[2rem] overflow-hidden aspect-[4/3]" data-img-label="Foto — Sobre mí">
+                        <img src="https://picsum.photos/seed/tech-about-kevin/800/600.jpg" alt="Sobre Kevin" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700">
+                        <div class="edit-img-ov rounded-[2rem]">
+                            <span class="iconify w-7 h-7 text-white epulse" data-icon="lucide:camera"></span>
+                            <span class="text-white text-xs font-medium epulse">Cambiar foto</span>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-4 sm:-right-6 glass rounded-2xl p-5 shadow-lg max-w-[220px]">
+                        <div class="flex items-center gap-2 mb-2"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:lightbulb"></span><span class="text-xs font-semibold text-stone-700">Filosofía</span></div>
+                        <p class="text-xs text-stone-500 leading-relaxed" data-eid="about-philosophy">Aprender haciendo, resolver con lógica, crecer con cada reto.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-7 space-y-6">
+                <div class="reveal">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Sobre mí</span>
+                    <h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="about-title">Tecnología con <span class="text-stone-400">propósito</span> y solución</h2>
+                </div>
+                <p class="text-base sm:text-lg font-light text-stone-500 leading-relaxed reveal reveal-delay-1" data-eid="about-p1">Soy un técnico recién titulado, proactivo y apasionado por la tecnología, con una base sólida en el montaje, mantenimiento y configuración de sistemas informáticos.</p>
+                <p class="text-base sm:text-lg font-light text-stone-500 leading-relaxed reveal reveal-delay-2" data-eid="about-p2">Me considero una persona <strong class="text-stone-700 font-medium">resolutiva</strong> y con gran <strong class="text-stone-700 font-medium">capacidad de adaptación</strong>, cualidades que puse a prueba durante mis prácticas en un entorno de investigación de alto nivel como el Institut de Recerca contra la Leucèmia Josep Carreras.</p>
+                <p class="text-base sm:text-lg font-light text-stone-500 leading-relaxed reveal reveal-delay-3" data-eid="about-p3">Estoy listo para dar el siguiente paso profesional y aportar mi energía a un equipo técnico que valore la iniciativa y el aprendizaje continuo.</p>
+                <div class="grid sm:grid-cols-3 gap-4 pt-4 reveal reveal-delay-4">
+                    <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hover-card">
+                        <div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-3"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:zap"></span></div>
+                        <div class="text-sm font-medium" data-eid="about-c1t">Proactivo</div>
+                        <div class="text-xs text-stone-400 mt-1" data-eid="about-c1d">No espero instrucciones, busco soluciones.</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hover-card">
+                        <div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-3"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:refresh-cw"></span></div>
+                        <div class="text-sm font-medium" data-eid="about-c2t">Adaptable</div>
+                        <div class="text-xs text-stone-400 mt-1" data-eid="about-c2d">Me ajusto rápido a nuevos entornos y retos.</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hover-card">
+                        <div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-3"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:target"></span></div>
+                        <div class="text-sm font-medium" data-eid="about-c3t">Resolutivo</div>
+                        <div class="text-xs text-stone-400 mt-1" data-eid="about-c3d">Enfocado en encontrar la solución óptima.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades" class="py-24 sm:py-32">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+            <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Competencias</span>
+            <h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="skills-title">Habilidades <span class="text-stone-400">técnicas</span></h2>
+            <p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="skills-desc">Conocimientos prácticos adquiridos durante mi formación y mi experiencia profesional real.</p>
+        </div>
+        <div class="flex justify-center mb-10 reveal reveal-delay-1">
+            <div class="inline-flex bg-stone-100 rounded-full p-1.5 gap-1">
+                <button class="tab-btn active text-sm font-medium px-6 py-2.5 rounded-full" data-tab="redes"><span class="iconify w-4 h-4 inline-block mr-1.5 align-[-3px]" data-icon="lucide:network"></span>Sistemas y Redes</button>
+                <button class="tab-btn text-sm font-medium px-6 py-2.5 rounded-full text-stone-500" data-tab="software"><span class="iconify w-4 h-4 inline-block mr-1.5 align-[-3px]" data-icon="lucide:code"></span>Desarrollo y Software</button>
+            </div>
+        </div>
+        <div id="tab-redes" class="tab-content active">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hover-card reveal reveal-delay-1">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:cpu"></span></div>
+                    <h3 class="text-lg font-medium mb-2" data-eid="sk1t">Montaje y Mantenimiento</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="sk1d">Instalación de hardware, detección de averías y sustitución de componentes con precisión y eficiencia.</p>
+                    <div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Hardware</span><span class="text-stone-400">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Diagnóstico</span><span class="text-stone-400">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div></div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hover-card reveal reveal-delay-2">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:router"></span></div>
+                    <h3 class="text-lg font-medium mb-2" data-eid="sk2t">Redes (Xarxas)</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="sk2d">Configuración de routers, switches, cableado estructurado y gestión de redes locales (LAN).</p>
+                    <div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Configuración</span><span class="text-stone-400">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Cableado</span><span class="text-stone-400">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div></div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hover-card reveal reveal-delay-3 sm:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:monitor"></span></div>
+                    <h3 class="text-lg font-medium mb-2" data-eid="sk3t">Sistemas Operativos</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="sk3d">Instalación y administración de Windows (Client/Server) y distribuciones Linux.</p>
+                    <div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Windows</span><span class="text-stone-400">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Linux</span><span class="text-stone-400">75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div></div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-software" class="tab-content">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hover-card">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:bar-chart-3"></span></div>
+                    <h3 class="text-lg font-medium mb-2" data-eid="sk4t">Programación Estadística</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="sk4d">Experiencia específica en RScript para la gestión, procesamiento y análisis de datos científicos.</p>
+                    <div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">RScript</span><span class="text-stone-400">80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div></div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hover-card">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:globe"></span></div>
+                    <h3 class="text-lg font-medium mb-2" data-eid="sk5t">Entornos Web</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="sk5d">Creación de interfaces funcionales para la visualización de información y presentación de datos.</p>
+                    <div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">HTML/CSS</span><span class="text-stone-400">75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">R Web (Shiny)</span><span class="text-stone-400">80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div></div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hover-card sm:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:shield-check"></span></div>
+                    <h3 class="text-lg font-medium mb-2" data-eid="sk6t">Seguridad Informática</h3>
+                    <p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="sk6d">Implementación de copias de seguridad y protocolos básicos de ciberseguridad.</p>
+                    <div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Backups</span><span class="text-stone-400">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Ciberseguridad</span><span class="text-stone-400">65%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section id="experiencia" class="py-24 sm:py-32">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+            <div class="lg:col-span-4 lg:sticky lg:top-32 lg:self-start reveal">
+                <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Trayectoria</span>
+                <h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="exp-title">Experiencia <span class="text-stone-400">profesional</span></h2>
+                <p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="exp-desc">Mi primera experiencia real fue en un entorno de investigación puntero, donde demostré que la formación se traduce en resultados.</p>
+                <div class="mt-8 space-y-3">
+                    <button class="accordion-trigger w-full text-left bg-white rounded-2xl p-5 border border-stone-200/50 hover-card">
+                        <div class="flex items-center justify-between"><span class="text-sm font-medium">¿Qué aprendí en FCT?</span><span class="accordion-icon iconify w-5 h-5 text-stone-400" data-icon="lucide:plus"></span></div>
+                        <div class="accordion-content"><p class="text-sm text-stone-500 leading-relaxed pt-4" data-eid="exp-acc1">Durante mis prácticas FCT aprendí a trabajar en un entorno multidisciplinar donde la tecnología está al servicio de la ciencia. Desarrollé capacidad para traducir necesidades de investigación en soluciones técnicas, gestionar bases de datos complejas y comunicarme eficazmente con profesionales de otros ámbitos.</p></div>
+                    </button>
+                    <button class="accordion-trigger w-full text-left bg-white rounded-2xl p-5 border border-stone-200/50 hover-card">
+                        <div class="flex items-center justify-between"><span class="text-sm font-medium">¿Qué valor aporto?</span><span class="accordion-icon iconify w-5 h-5 text-stone-400" data-icon="lucide:plus"></span></div>
+                        <div class="accordion-content"><p class="text-sm text-stone-500 leading-relaxed pt-4" data-eid="exp-acc2">Aporto una combinación única de formación técnica reciente y experiencia real en un entorno exigente. No tengo vicios profesionales, tengo ganas de aprender, y demuestro iniciativa propia. Mi experiencia en el Josep Carreras Institute demuestra que puedo dar resultados en contextos de alto nivel.</p></div>
+                    </button>
+                </div>
+            </div>
+            <div class="lg:col-span-8 reveal reveal-delay-2">
+                <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-stone-200/50 shadow-sm hover-card">
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-8">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-stone-100 flex items-center justify-center flex-shrink-0"><span class="iconify w-7 h-7 text-stone-700" data-icon="lucide:flask-conical"></span></div>
+                            <div><h3 class="text-xl font-medium" data-eid="exp-job">Desarrollador de Aplicación Web</h3><p class="text-sm text-stone-500 mt-0.5" data-eid="exp-sub">Prácticas FCT</p></div>
+                        </div>
+                        <div class="flex flex-col items-end gap-1"><span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-green-50 text-green-700 px-3 py-1.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Completado</span><span class="text-xs text-stone-400">4 meses</span></div>
+                    </div>
+                    <div class="bg-stone-50 rounded-2xl p-6 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:building-2"></span></div>
+                            <div><div class="text-sm font-medium" data-eid="exp-company">Institut de Recerca contra la Leucèmia Josep Carreras</div><div class="text-xs text-stone-400 mt-1" data-eid="exp-compdesc">Centro de investigación oncológica de referencia internacional</div></div>
+                        </div>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="flex gap-4"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-white text-xs font-bold">1</span></div><div><h4 class="text-sm font-medium mb-1" data-eid="exp-t1t">Diseño y desarrollo web con RScript</h4><p class="text-sm text-stone-500 leading-relaxed" data-eid="exp-t1d">Desarrollo completo de una página web técnica utilizando RScript, desde la arquitectura hasta el despliegue funcional.</p></div></div>
+                        <div class="flex gap-4"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-white text-xs font-bold">2</span></div><div><h4 class="text-sm font-medium mb-1" data-eid="exp-t2t">Colaboración con equipo de investigación</h4><p class="text-sm text-stone-500 leading-relaxed" data-eid="exp-t2d">Trabajo directo con investigadores para digitalizar y facilitar el acceso a sus datos de estudio, entendiendo sus necesidades reales.</p></div></div>
+                        <div class="flex gap-4"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-white text-xs font-bold">3</span></div><div><h4 class="text-sm font-medium mb-1" data-eid="exp-t3t">Gestión de datos y optimización</h4><p class="text-sm text-stone-500 leading-relaxed" data-eid="exp-t3d">Gestión de bases de datos y optimización de scripts para la visualización de resultados científicos de forma clara y eficiente.</p></div></div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-stone-100">
+                        <div class="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-3">Tecnologías utilizadas</div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium bg-stone-100 text-stone-600 px-3 py-1.5 rounded-full">RScript</span>
+                            <span class="text-xs font-medium bg-stone-100 text-stone-600 px-3 py-1.5 rounded-full">R Shiny</span>
+                            <span class="text-xs font-medium bg-stone-100 text-stone-600 px-3 py-1.5 rounded-full">Bases de datos</span>
+                            <span class="text-xs font-medium bg-stone-100 text-stone-600 px-3 py-1.5 rounded-full">Visualización datos</span>
+                            <span class="text-xs font-medium bg-stone-100 text-stone-600 px-3 py-1.5 rounded-full">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORMACIÓN -->
+<section id="formacion" class="py-24 sm:py-32">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+            <div class="lg:col-span-5 reveal">
+                <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Estudios</span>
+                <h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="edu-title">Formación <span class="text-stone-400">académica</span></h2>
+                <p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="edu-desc">Mi recorrido formativo me ha proporcionado una base técnica sólida y versátil, complementada con experiencia práctica real.</p>
+                <div class="mt-10">
+                    <div class="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-4">Idiomas</div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hover-card"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><span class="text-lg">🇪🇸</span><div><div class="text-sm font-medium">Castellano</div><div class="text-xs text-stone-400">Nativo</div></div></div><div class="flex gap-1"><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div></div></div></div>
+                        <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hover-card"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><span class="text-lg">🇦🇩</span><div><div class="text-sm font-medium">Catalán</div><div class="text-xs text-stone-400">Nativo</div></div></div><div class="flex gap-1"><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div></div></div></div>
+                        <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hover-card"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><span class="text-lg">🇬🇧</span><div><div class="text-sm font-medium">Inglés</div><div class="text-xs text-stone-400">Nivel técnico</div></div></div><div class="flex gap-1"><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-200"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-200"></div></div></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-7 space-y-6 reveal reveal-delay-2">
+                <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-stone-200/50 hover-card">
+                    <div class="flex items-start gap-5">
+                        <div class="flex-shrink-0"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center"><span class="iconify w-6 h-6 text-white" data-icon="lucide:graduation-cap"></span></div></div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-start justify-between gap-2 mb-2"><div><h3 class="text-lg font-medium" data-eid="edu1-title">CFGM Sistemas Microinformáticos y Redes</h3><p class="text-sm text-stone-500" data-eid="edu1-school">Institut La Ferreria</p></div><span class="inline-flex text-[10px] font-bold uppercase tracking-wider text-stone-500 bg-stone-100 px-3 py-1.5 rounded-full">Título oficial</span></div>
+                            <p class="text-sm text-stone-400 mb-4" data-eid="edu1-loc">Montcada i Reixac, Barcelona</p>
+                            <p class="text-sm text-stone-500 leading-relaxed" data-eid="edu1-desc">Formación completa en montaje y mantenimiento de equipos, configuración de redes locales, administración de sistemas operativos, fundamentos de seguridad informática y desarrollo web básico.</p>
+                            <div class="flex flex-wrap gap-2 mt-5"><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Hardware</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Redes LAN</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Windows Server</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Linux</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Seguridad</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-stone-200/50 hover-card">
+                    <div class="flex items-start gap-5">
+                        <div class="flex-shrink-0"><div class="w-12 h-12 rounded-2xl bg-stone-100 flex items-center justify-center"><span class="iconify w-6 h-6 text-stone-700" data-icon="lucide:wrench"></span></div></div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-start justify-between gap-2 mb-2"><div><h3 class="text-lg font-medium" data-eid="edu2-title">PFI Auxiliar de Montaje y Mantenimiento</h3><p class="text-sm text-stone-500" data-eid="edu2-school">Institut La Ferreria</p></div><span class="inline-flex text-[10px] font-bold uppercase tracking-wider text-stone-500 bg-stone-100 px-3 py-1.5 rounded-full">Prácticas</span></div>
+                            <p class="text-sm text-stone-400 mb-4" data-eid="edu2-loc">Montcada i Reixac, Barcelona</p>
+                            <p class="text-sm text-stone-500 leading-relaxed" data-eid="edu2-desc">Programa de Formación en Centros de Trabajo enfocado en el montaje y mantenimiento de equipos informáticos, adquiriendo destrezas prácticas directamente en entorno laboral real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="py-24 sm:py-32">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="bg-stone-900 rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-20 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-white/5 blur-[100px] pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-white/3 blur-[80px] pointer-events-none"></div>
+            <div class="absolute top-16 right-20 w-14 h-14 rounded-xl bg-white/5 animate-float pointer-events-none hidden lg:block"></div>
+            <div class="absolute bottom-20 right-[35%] w-8 h-8 rounded-full bg-white/5 animate-float-delay pointer-events-none hidden lg:block"></div>
+            <div class="relative grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="reveal">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-white/40">Contacto</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.025em] leading-[1.1] text-white mt-3" data-eid="contact-title">¿Buscas a alguien con <span class="text-white/40">ganas de trabajar</span>?</h2>
+                    <p class="text-base font-light text-white/50 leading-relaxed mt-6" data-eid="contact-desc">Tengo disponibilidad inmediata y muchísimas ganas de demostrar lo que sé hacer. Si buscas un perfil técnico joven, proactivo y con experiencia real, me encantaría hablar contigo.</p>
+                    <div class="space-y-4 mt-8">
+                        <a href="mailto:megiasalvarez.kevin@gmail.com" class="flex items-center gap-4 text-white/70 hover:text-white transition-colors group">
+                            <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/15 transition-colors"><span class="iconify w-5 h-5" data-icon="lucide:mail"></span></div>
+                            <div><div class="text-xs text-white/40 mb-0.5">Email</div><div class="text-sm font-medium" data-eid="contact-email">megiasalvarez.kevin@gmail.com</div></div>
+                            <span class="iconify w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" data-icon="lucide:arrow-up-right"></span>
+                        </a>
+                        <div class="flex items-center gap-4 text-white/70">
+                            <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center"><span class="iconify w-5 h-5" data-icon="lucide:map-pin"></span></div>
+                            <div><div class="text-xs text-white/40 mb-0.5">Ubicación</div><div class="text-sm font-medium" data-eid="contact-loc">Montcada i Reixac, Barcelona</div></div>
+                        </div>
+                        <div class="flex items-center gap-4 text-white/70">
+                            <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center"><span class="iconify w-5 h-5" data-icon="lucide:clock"></span></div>
+                            <div><div class="text-xs text-white/40 mb-0.5">Disponibilidad</div><div class="text-sm font-medium flex items-center gap-2">Inmediata<span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" style="animation:pulse-ring 1.5s ease-out infinite"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <form id="contactForm" class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10">
+                        <div class="space-y-4">
+                            <div><label class="block text-xs font-medium text-white/50 mb-2">Tu nombre</label><input type="text" required placeholder="¿Cómo te llamas?" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all"></div>
+                            <div><label class="block text-xs font-medium text-white/50 mb-2">Tu email</label><input type="email" required placeholder="tu@empresa.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all"></div>
+                            <div><label class="block text-xs font-medium text-white/50 mb-2">Mensaje</label><textarea required rows="4" placeholder="Cuéntame sobre la posición o proyecto..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all resize-none"></textarea></div>
+                            <button type="submit" class="w-full bg-white text-stone-900 text-sm font-semibold py-3.5 rounded-xl hover:bg-white/90 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">Enviar mensaje<span class="iconify w-4 h-4" data-icon="lucide:send"></span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 border-t border-stone-200/50">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center text-white font-semibold text-xs">KM</div><span class="text-sm text-stone-400">Kevin Megias Alvarez</span></div>
+            <p class="text-xs text-stone-400" data-eid="footer-text">© 2025 — Portafolio profesional. Hecho con dedicación.</p>
+            <a href="#hero" class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center hover:bg-stone-200 transition-colors"><span class="iconify w-4 h-4 text-stone-600" data-icon="lucide:arrow-up"></span></a>
+        </div>
+    </div>
+</footer>
+
+<!-- MODAL -->
+<div id="successModal" class="modal-overlay fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="modalBackdrop"></div>
+    <div class="modal-panel relative bg-white rounded-[2rem] p-8 sm:p-10 max-w-md w-full shadow-2xl">
+        <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5"><span class="iconify w-8 h-8 text-green-500" data-icon="lucide:check-circle-2"></span></div>
+            <h3 class="text-xl font-medium mb-2">¡Mensaje enviado!</h3>
+            <p class="text-sm text-stone-500 leading-relaxed mb-6">Gracias por tu interés. Me pondré en contacto contigo lo antes posible.</p>
+            <button id="closeModal" class="bg-stone-900 text-white text-sm font-medium px-8 py-3 rounded-full hover:bg-stone-800 transition-colors">Entendido</button>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast fixed bottom-24 right-6 z-[90] glass rounded-2xl p-5 shadow-xl max-w-sm pointer-events-none">
+    <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0"><span class="iconify w-4 h-4 text-green-600" data-icon="lucide:check"></span></div>
+        <div><div class="text-sm font-medium">¡Enviado correctamente!</div><div class="text-xs text-stone-400">Te responderé pronto.</div></div>
+    </div>
+</div>
+
+<!-- PANEL EDITOR -->
+<div id="editPanel" class="epanel away">
+    <div class="edot off" id="eDot"></div>
+    <span class="text-white text-xs font-medium" id="eStatus">Modo edición</span>
+    <span class="ecount" id="eCount"></span>
+    <button class="ebtn ebtn-g" id="eToggle"><span class="iconify w-3.5 h-3.5" data-icon="lucide:pencil" id="eToggleIco"></span><span id="eToggleTxt">Editar</span></button>
+    <button class="ebtn ebtn-p" id="eExport"><span class="iconify w-3.5 h-3.5" data-icon="lucide:download"></span>Exportar</button>
+    <button class="ebtn ebtn-d" id="eReset" title="Restaurar todo"><span class="iconify w-3.5 h-3.5" data-icon="lucide:rotate-ccw"></span></button>
+</div>
+
+<input type="file" id="eFileIn" accept="image/*" class="hidden">
+
+<script>
+// ========================================================
+// 1) FUNCIONALIDAD NORMAL DE LA PÁGINA (siempre funciona)
+// ========================================================
+
+// Reveal: primero ocultar, luego observer
+document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('hide-reveal'); });
+
+var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('active'); });
+}, {threshold:0.1, rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
+
+var barObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('active'); });
+}, {threshold:0.5});
+document.querySelectorAll('.skill-bar-fill').forEach(function(el){ barObs.observe(el); });
+
+// Navbar scroll
+var navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function(){
+    if(window.pageYOffset > 80){ navbar.classList.add('bg-white/80','backdrop-blur-xl','border-b','border-stone-200/50','shadow-sm'); }
+    else { navbar.classList.remove('bg-white/80','backdrop-blur-xl','border-b','border-stone-200/50','shadow-sm'); }
+});
+
+// Active nav
+var secs = document.querySelectorAll('section[id]');
+var nLinks = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', function(){
+    var cur='';
+    secs.forEach(function(s){ if(window.pageYOffset >= s.offsetTop - 150) cur = s.getAttribute('id'); });
+    nLinks.forEach(function(l){ l.classList.remove('active'); if(l.getAttribute('href') === '#'+cur) l.classList.add('active'); });
+});
+
+// Mobile menu
+document.getElementById('mobileMenuBtn').addEventListener('click', function(){ document.getElementById('mobileMenu').classList.toggle('hidden'); });
+document.querySelectorAll('.mobile-nav-link').forEach(function(l){ l.addEventListener('click', function(){ document.getElementById('mobileMenu').classList.add('hidden'); }); });
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+        var tid = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.classList.add('text-stone-500'); });
+        document.querySelectorAll('.tab-content').forEach(function(c){ c.classList.remove('active'); });
+        btn.classList.add('active'); btn.classList.remove('text-stone-500');
+        document.getElementById('tab-'+tid).classList.add('active');
+        setTimeout(function(){
+            document.querySelectorAll('#tab-'+tid+' .skill-bar-fill').forEach(function(bar){
+                bar.classList.remove('active');
+                requestAnimationFrame(function(){ requestAnimationFrame(function(){ bar.classList.add('active'); }); });
+            });
+        }, 50);
+    });
+});
+
+// Accordion
+document.querySelectorAll('.accordion-trigger').forEach(function(trig){
+    trig.addEventListener('click', function(){
+        var cont = trig.querySelector('.accordion-content');
+        var ico = trig.querySelector('.accordion-icon');
+        var isOpen = cont.classList.contains('open');
+        document.querySelectorAll('.accordion-content').forEach(function(c){ c.classList.remove('open'); });
+        document.querySelectorAll('.accordion-icon').forEach(function(i){ i.classList.remove('open'); });
+        if(!isOpen){ cont.classList.add('open'); ico.classList.add('open'); }
+    });
+});
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var t = document.getElementById('toast');
+    t.classList.add('show'); t.style.pointerEvents='auto';
+    e.target.reset();
+    setTimeout(function(){ t.classList.remove('show'); t.style.pointerEvents='none'; }, 4000);
+});
+document.getElementById('closeModal').addEventListener('click', function(){ document.getElementById('successModal').classList.remove('open'); });
+document.getElementById('modalBackdrop').addEventListener('click', function(){ document.getElementById('successModal').classList.remove('open'); });
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+        e.preventDefault();
+        var tgt = document.querySelector(a.getAttribute('href'));
+        if(tgt) tgt.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+});
+
+// ========================================================
+// 2) SISTEMA DE EDICIÓN (aislado, si falla no rompe la página)
+// ========================================================
+try {
+(function(){
+    var IMG_KEY = 'kp_imgs';
+    var TXT_KEY = 'kp_txt';
+    var imgWraps = document.querySelectorAll('.edit-img-wrap');
+    var textEls = document.querySelectorAll('[data-eid]');
+    var panel = document.getElementById('editPanel');
+    var toggleBtn = document.getElementById('eToggle');
+    var dot = document.getElementById('eDot');
+    var statusEl = document.getElementById('eStatus');
+    var countEl = document.getElementById('eCount');
+    var toggleIco = document.getElementById('eToggleIco');
+    var toggleTxt = document.getElementById('eToggleTxt');
+    var exportBtn = document.getElementById('eExport');
+    var resetBtn = document.getElementById('eReset');
+    var fileIn = document.getElementById('eFileIn');
+    var editOn = false;
+    var activeIdx = null;
+    var saveTimer = null;
+
+    // Guardar originales
+    var origImgs = {};
+    var origTexts = {};
+    imgWraps.forEach(function(w,i){ var img = w.querySelector('img'); if(img) origImgs[i]=img.src; });
+    textEls.forEach(function(el){ origTexts[el.getAttribute('data-eid')] = el.innerHTML; });
+
+    // Cargar datos guardados
+    function loadSaved(){
+        try {
+            var si = JSON.parse(localStorage.getItem(IMG_KEY));
+            if(si) imgWraps.forEach(function(w,i){ var img=w.querySelector('img'); if(img && si[i]) img.src=si[i]; });
+        } catch(e){}
+        try {
+            var st = JSON.parse(localStorage.getItem(TXT_KEY));
+            if(st) textEls.forEach(function(el){ var eid=el.getAttribute('data-eid'); if(st[eid]) el.innerHTML=st[eid]; });
+        } catch(e){}
+        updateCount();
+    }
+
+    function saveImgs(){
+        var d={};
+        imgWraps.forEach(function(w,i){ var img=w.querySelector('img'); if(img) d[i]=img.src; });
+        try{ localStorage.setItem(IMG_KEY, JSON.stringify(d)); }catch(e){}
+    }
+
+    function saveTexts(){
+        var d={};
+        textEls.forEach(function(el){ d[el.getAttribute('data-eid')]=el.innerHTML; });
+        try{ localStorage.setItem(TXT_KEY, JSON.stringify(d)); }catch(e){}
+    }
+
+    function debouncedSave(){
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(function(){ saveTexts(); updateCount(); }, 600);
+    }
+
+    function updateCount(){
+        var ci=0, ct=0;
+        imgWraps.forEach(function(w,i){ var img=w.querySelector('img'); if(img && img.src!==origImgs[i]) ci++; });
+        textEls.forEach(function(el){ var eid=el.getAttribute('data-eid'); if(el.innerHTML!==origTexts[eid]) ct++; });
+        var total = ci+ct;
+        if(total===0) countEl.textContent = imgWraps.length+' fotos · '+textEls.length+' textos';
+        else countEl.textContent = total+' cambiado'+(total>1?'s':'');
+    }
+
+    // Mostrar panel
+    setTimeout(function(){ panel.classList.remove('away'); }, 600);
+
+    // Toggle edición
+    toggleBtn.addEventListener('click', function(){
+        editOn = !editOn;
+        document.body.classList.toggle('edit-on', editOn);
+        dot.classList.toggle('off', !editOn);
+        statusEl.textContent = editOn ? 'Editando...' : 'Modo edición';
+        toggleIco.setAttribute('data-icon', editOn ? 'lucide:eye-off' : 'lucide:pencil');
+        toggleTxt.textContent = editOn ? 'Vista normal' : 'Editar';
+
+        textEls.forEach(function(el){
+            if(editOn){
+                el.setAttribute('contenteditable','true');
+            } else {
+                el.removeAttribute('contenteditable');
+                el.blur();
+            }
+        });
+
+        if(editOn) updateCount();
+    });
+
+    // Guardar texto al escribir
+    textEls.forEach(function(el){
+        el.addEventListener('input', function(){
+            if(editOn) debouncedSave();
+        });
+        // Prevenir que clicks en links dentro de editables naveguen
+        el.addEventListener('click', function(e){
+            if(editOn && el.closest('a')){
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
+    });
+
+    // Click en fotos
+    imgWraps.forEach(function(w,i){
+        w.addEventListener('click', function(e){
+            if(!editOn) return;
+            e.preventDefault(); e.stopPropagation();
+            activeIdx = i;
+            fileIn.click();
+        });
+    });
+
+    fileIn.addEventListener('change', function(e){
+        var file = e.target.files[0];
+        if(!file || activeIdx===null) return;
+        if(!file.type.startsWith('image/')) return;
+        var reader = new FileReader();
+        reader.onload = function(ev){
+            var img = imgWraps[activeIdx].querySelector('img');
+            if(img){ img.src=ev.target.result; saveImgs(); updateCount(); showNotif('Foto cambiada'); }
+        };
+        reader.readAsDataURL(file);
+        fileIn.value='';
+    });
+
+    // Reset
+    resetBtn.addEventListener('click', function(){
+        imgWraps.forEach(function(w,i){ var img=w.querySelector('img'); if(img && origImgs[i]) img.src=origImgs[i]; });
+        textEls.forEach(function(el){ var eid=el.getAttribute('data-eid'); if(origTexts[eid]) el.innerHTML=origTexts[eid]; });
+        try{ localStorage.removeItem(IMG_KEY); localStorage.removeItem(TXT_KEY); }catch(e){}
+        updateCount();
+        showNotif('Todo restaurado al original');
+    });
+
+    // === EXPORTAR ===
+    exportBtn.addEventListener('click', function(){
+        // Clonar
+        var clone = document.documentElement.cloneNode(true);
+
+        // Quitar clase edit-on del body
+        clone.querySelector('body')?.classList.remove('edit-on');
+
+        // Quitar overlays de fotos
+        clone.querySelectorAll('.edit-img-ov').forEach(function(el){ el.remove(); });
+
+        // Quitar clase edit-img-wrap
+        clone.querySelectorAll('.edit-img-wrap').forEach(function(el){ el.classList.remove('edit-img-wrap'); });
+
+        // Quitar contenteditable y data-eid
+        clone.querySelectorAll('[contenteditable]').forEach(function(el){ el.removeAttribute('contenteditable'); });
+        clone.querySelectorAll('[data-eid]').forEach(function(el){ el.removeAttribute('data-eid'); });
+
+        // Quitar banner edición
+        var banner = clone.querySelector('.edit-banner');
+        if(banner) banner.remove();
+
+        // Quitar panel edición
+        var ep = clone.querySelector('#editPanel');
+        if(ep) ep.remove();
+
+        // Quitar file input
+        var fi = clone.querySelector('#eFileIn');
+        if(fi) fi.remove();
+
+        // Quitar hide-reveal (que los elementos sean visibles)
+        clone.querySelectorAll('.hide-reveal').forEach(function(el){ el.classList.remove('hide-reveal'); });
+
+        // Limpiar CSS del editor del style tag
+        var styleEl = clone.querySelector('style');
+        if(styleEl){
+            styleEl.textContent = styleEl.textContent.replace(/\/\* === EDITOR === \*\/[\s\S]*?$/, '');
+        }
+
+        // Quitar script del editor
+        clone.querySelectorAll('script').forEach(function(s){
+            if(s.textContent.indexOf('SISTEMA DE EDICIÓN') !== -1) s.remove();
+        });
+
+        // Generar HTML
+        var html = '<!DOCTYPE html>\n<html lang="es">' + clone.innerHTML + '</html>';
+        var blob = new Blob([html], {type:'text/html;charset=utf-8'});
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'kevin-megias-portafolio.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showNotif('¡Descargado! Ese archivo es tu portafolio final.');
+    });
+
+    // Notificación
+    function showNotif(msg){
+        var old = document.getElementById('eNotif');
+        if(old) old.remove();
+        var n = document.createElement('div');
+        n.id = 'eNotif';
+        n.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-16px);z-index:300;opacity:0;transition:all .4s cubic-bezier(.16,1,.3,1);background:#1c1917;color:#fff;padding:10px 22px;border-radius:14px;font-size:12px;font-weight:500;box-shadow:0 16px 40px -8px rgba(0,0,0,.3);display:flex;align-items:center;gap:7px;white-space:nowrap;';
+        n.innerHTML = '<span style="color:#22c55e">✓</span> ' + msg;
+        document.body.appendChild(n);
+        requestAnimationFrame(function(){ n.style.opacity='1'; n.style.transform='translateX(-50%) translateY(0)'; });
+        setTimeout(function(){ n.style.opacity='0'; n.style.transform='translateX(-50%) translateY(-16px)'; setTimeout(function(){ n.remove(); },400); }, 3000);
+    }
+
+    // Init
+    loadSaved();
+    updateCount();
+
+})();
+} catch(err) {
+    console.warn('Editor no cargó:', err);
+}
+</script>
+</body>
+</html>
