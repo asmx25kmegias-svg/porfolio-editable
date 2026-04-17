@@ -1,121 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Megias Alvarez — Portafolio Técnico</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']}}}}</script>
-    <style>
-        ::selection{background:#1c1917;color:#fff}
-        .reveal{transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-        .reveal.hide-r{opacity:0;transform:translateY(30px)}
-        .reveal.active{opacity:1;transform:translateY(0)}
-        .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
-        @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes fadeInScale{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
-        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-        @keyframes pulse-ring{0%{transform:scale(.9);opacity:.5}100%{transform:scale(1.3);opacity:0}}
-        .anim-fiu{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) forwards}
-        .anim-fiu-d{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) .2s forwards;opacity:0}
-        .anim-fiu-d2{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) .4s forwards;opacity:0}
-        .anim-fis{animation:fadeInScale 1s cubic-bezier(.16,1,.3,1) .3s forwards;opacity:0}
-        .anim-fl{animation:float 6s ease-in-out infinite}.anim-fl-d{animation:float 6s ease-in-out 2s infinite}
-        .glass{background:rgba(255,255,255,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.5)}
-        .glass-dk{background:rgba(28,25,23,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08)}
-        .skill-bar{height:6px;border-radius:999px;background:#e7e5e4;overflow:hidden}
-        .skill-bar-fill{height:100%;border-radius:999px;background:#1c1917;transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
-        .skill-bar-fill.active{transform:scaleX(1)}
-        .nav-link{position:relative;transition:color .3s}
-        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#1c1917;border-radius:999px;transition:width .3s cubic-bezier(.16,1,.3,1)}
-        .nav-link.active::after,.nav-link:hover::after{width:100%}
-        .av-dot{position:relative}
-        .av-dot::before{content:'';position:absolute;inset:-3px;border-radius:999px;background:#22c55e;animation:pulse-ring 2s ease-out infinite}
-        .tab-btn{transition:all .3s cubic-bezier(.16,1,.3,1)}
-        .tab-btn.active{background:#1c1917;color:#fff;box-shadow:0 10px 15px -3px rgba(28,25,23,.15)}
-        .tab-content{display:none;animation:fadeInUp .5s cubic-bezier(.16,1,.3,1)}
-        .tab-content.active{display:block}
-        .acc-cont{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1),padding .3s}
-        .acc-cont.open{max-height:500px}
-        .acc-ico{transition:transform .4s cubic-bezier(.16,1,.3,1)}
-        .acc-ico.open{transform:rotate(45deg)}
-        .modal-ov{opacity:0;pointer-events:none;transition:opacity .3s}
-        .modal-ov.open{opacity:1;pointer-events:auto}
-        .modal-pn{transform:translateY(30px) scale(.95);transition:transform .4s cubic-bezier(.16,1,.3,1)}
-        .modal-ov.open .modal-pn{transform:translateY(0) scale(1)}
-        html{scroll-behavior:smooth}
-        .hcard{transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
-        .hcard:hover{transform:translateY(-6px);box-shadow:0 25px 50px -12px rgba(0,0,0,.1)}
-        .toast{transform:translateY(20px);opacity:0;transition:all .4s cubic-bezier(.16,1,.3,1)}
-        .toast.show{transform:translateY(0);opacity:1}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kevin Megias Alvarez — Portafolio Técnico</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']}}}}</script>
+<style>
+::selection{background:#1c1917;color:#fff}
+.reveal{transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.hide-r{opacity:0;transform:translateY(30px)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInScale{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse-ring{0%{transform:scale(.9);opacity:.5}100%{transform:scale(1.3);opacity:0}}
+@keyframes editPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.afiu{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) forwards}
+.afiu-d{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) .2s forwards;opacity:0}
+.afiu-d2{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) .4s forwards;opacity:0}
+.afis{animation:fadeInScale 1s cubic-bezier(.16,1,.3,1) .3s forwards;opacity:0}
+.afl{animation:float 6s ease-in-out infinite}.afl-d{animation:float 6s ease-in-out 2s infinite}
+.glass{background:rgba(255,255,255,.7);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.5)}
+.glass-dk{background:rgba(28,25,23,.85);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08)}
+.skill-bar{height:6px;border-radius:999px;background:#e7e5e4;overflow:hidden}
+.skill-bar-fill{height:100%;border-radius:999px;background:#1c1917;transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+.skill-bar-fill.active{transform:scaleX(1)}
+.nav-link{position:relative;transition:color .3s}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#1c1917;border-radius:999px;transition:width .3s cubic-bezier(.16,1,.3,1)}
+.nav-link.active::after,.nav-link:hover::after{width:100%}
+.av-dot{position:relative}.av-dot::before{content:'';position:absolute;inset:-3px;border-radius:999px;background:#22c55e;animation:pulse-ring 2s ease-out infinite}
+.tab-btn{transition:all .3s cubic-bezier(.16,1,.3,1)}
+.tab-btn.active{background:#1c1917;color:#fff;box-shadow:0 10px 15px -3px rgba(28,25,23,.15)}
+.tab-content{display:none;animation:fadeInUp .5s cubic-bezier(.16,1,.3,1)}.tab-content.active{display:block}
+.acc-c{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.16,1,.3,1)}.acc-c.open{max-height:500px}
+.acc-i{transition:transform .4s cubic-bezier(.16,1,.3,1)}.acc-i.open{transform:rotate(45deg)}
+.modal-ov{opacity:0;pointer-events:none;transition:opacity .3s}.modal-ov.open{opacity:1;pointer-events:auto}
+.modal-pn{transform:translateY(30px) scale(.95);transition:transform .4s cubic-bezier(.16,1,.3,1)}.modal-ov.open .modal-pn{transform:translateY(0) scale(1)}
+html{scroll-behavior:smooth}
+.hcard{transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}.hcard:hover{transform:translateY(-6px);box-shadow:0 25px 50px -12px rgba(0,0,0,.1)}
+.toast{transform:translateY(20px);opacity:0;transition:all .4s cubic-bezier(.16,1,.3,1)}.toast.show{transform:translateY(0);opacity:1}
 
-        /* EDITOR */
-        .eimg-w{position:relative;cursor:pointer}
-        .eimg-w .eimg-ov{position:absolute;inset:0;z-index:30;background:rgba(28,25,23,.55);backdrop-filter:blur(4px);display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:inherit}
-        body.eon .eimg-w .eimg-ov{display:flex}
-        body.eon .eimg-w{outline:3px dashed rgba(28,25,23,.3);outline-offset:4px;border-radius:inherit}
-        body.eon [data-eid]{outline:2px dashed rgba(59,130,246,.3);outline-offset:3px;border-radius:4px;cursor:text;transition:outline-color .2s,background .2s}
-        body.eon [data-eid]:hover{outline-color:rgba(59,130,246,.6);background:rgba(59,130,246,.04)}
-        body.eon [data-eid]:focus{outline:2px solid rgba(59,130,246,.8);background:rgba(59,130,246,.07)}
-        body.eon [data-dyn]{position:relative}
-        body.eon [data-dyn] .edyn-del{display:flex!important}
-        .edyn-del{display:none!important;position:absolute;top:8px;right:8px;z-index:40;width:28px;height:28px;border-radius:50%;background:#ef4444;color:#fff;border:2px solid #fff;align-items:center;justify-content:center;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 12px rgba(239,68,68,.4);transition:transform .2s;line-height:1}
-        .edyn-del:hover{transform:scale(1.15)}
-        .epanel{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;background:#1c1917;border-radius:1.25rem;padding:10px 16px;display:flex;align-items:center;gap:8px;box-shadow:0 25px 60px -12px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08);transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .3s;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 24px)}
-        .epanel.away{transform:translateX(-50%) translateY(120px);opacity:0;pointer-events:none}
-        .ebtn{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:7px 13px;border-radius:10px;border:none;cursor:pointer;transition:all .25s;white-space:nowrap}
-        .ebtn-g{background:rgba(255,255,255,.08);color:#fff}.ebtn-g:hover{background:rgba(255,255,255,.15)}
-        .ebtn-p{background:#fff;color:#1c1917}.ebtn-p:hover{background:#f5f5f4;transform:translateY(-1px)}
-        .ebtn-d{background:rgba(239,68,68,.12);color:#fca5a5}.ebtn-d:hover{background:rgba(239,68,68,.22)}
-        .ebtn-add{background:rgba(59,130,246,.15);color:#93c5fd}.ebtn-add:hover{background:rgba(59,130,246,.3)}
-        .edot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.5);flex-shrink:0}
-        .edot.off{background:#78716c;box-shadow:none}
-        .ecount{background:rgba(255,255,255,.08);color:#fff;font-size:10px;font-weight:600;padding:3px 9px;border-radius:7px;white-space:nowrap}
-        @keyframes editPulse{0%,100%{opacity:1}50%{opacity:.4}}
-        body.eon .eimg-ov .epulse{animation:editPulse 2s ease-in-out infinite}
-        .ebanner{position:fixed;top:64px;left:0;right:0;z-index:45;background:rgba(59,130,246,.08);backdrop-filter:blur(8px);border-bottom:1px solid rgba(59,130,246,.15);padding:8px 16px;text-align:center;font-size:12px;font-weight:500;color:rgba(59,130,246,.8);display:none;transform:translateY(-100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
-        body.eon .ebanner{display:block;transform:translateY(0)}
+/* ===== EDITOR ===== */
+.eimg-w{position:relative;cursor:pointer}
+.eimg-w .eimg-ov{position:absolute;inset:0;z-index:30;background:rgba(28,25,23,.55);backdrop-filter:blur(4px);display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:inherit}
+body.eon .eimg-w .eimg-ov{display:flex}
+body.eon .eimg-w{outline:3px dashed rgba(28,25,23,.3);outline-offset:4px;border-radius:inherit}
+body.eon [data-eid]{outline:2px dashed rgba(59,130,246,.25);outline-offset:3px;border-radius:4px;cursor:text;transition:outline-color .2s,background .2s}
+body.eon [data-eid]:hover{outline-color:rgba(59,130,246,.55);background:rgba(59,130,246,.04)}
+body.eon [data-eid]:focus{outline:2px solid rgba(59,130,246,.8);background:rgba(59,130,246,.07)}
 
-        /* ADD PANEL */
-        .add-panel{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);z-index:195;background:#fff;border-radius:1.5rem;padding:20px;box-shadow:0 25px 60px -12px rgba(0,0,0,.2);border:1px solid rgba(0,0,0,.06);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.16,1,.3,1);width:min(440px,calc(100vw - 32px))}
-        .add-panel.open{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
-        .add-opt{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;border-radius:1rem;border:2px solid #f5f5f4;cursor:pointer;transition:all .25s;background:#fff}
-        .add-opt:hover{border-color:#1c1917;background:#fafaf9;transform:translateY(-2px);box-shadow:0 8px 20px -4px rgba(0,0,0,.08)}
-        .add-opt-icon{width:40px;height:40px;border-radius:12px;background:#f5f5f4;display:flex;align-items:center;justify-content:center;transition:background .25s}
-        .add-opt:hover .add-opt-icon{background:#1c1917}
-        .add-opt:hover .add-opt-icon span{color:#fff}
-        .add-opt span:last-child{font-size:11px;font-weight:600;color:#78716c;text-align:center}
-        .add-opt:hover span:last-child{color:#1c1917}
+/* Bloques editables */
+body.eon .edblock{position:relative;border:2px dashed transparent;border-radius:1.5rem;transition:border-color .2s,background .2s}
+body.eon .edblock:hover{border-color:rgba(28,25,23,.12);background:rgba(255,255,255,.3)}
+body.eon .edblock.drag-over{border-color:rgba(59,130,246,.4);background:rgba(59,130,246,.05)}
+.edblock.dragging{opacity:.4!important}
 
-        /* PDF VIEWER */
-        .pdf-viewer{position:fixed;inset:0;z-index:250;display:none}
-        .pdf-viewer.open{display:flex}
-        .pdf-card-btn{display:inline-flex;align-items:center;gap:6px;background:#1c1917;color:#fff;font-size:12px;font-weight:500;padding:8px 16px;border-radius:10px;border:none;cursor:pointer;transition:all .25s}
-        .pdf-card-btn:hover{background:#292524;transform:translateY(-1px)}
+/* Botones de bloque */
+.edblock-controls{display:none;position:absolute;top:8px;right:8px;z-index:40;gap:4px;align-items:center}
+body.eon .edblock-controls{display:flex}
+.edb-btn{width:28px;height:28px;border-radius:8px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.edb-btn-del{background:#ef4444;color:#fff}.edb-btn-del:hover{background:#dc2626;transform:scale(1.1)}
+.edb-btn-mv{background:#fff;color:#78716c;border:1px solid #e7e5e4}.edb-btn-mv:hover{background:#f5f5f4;color:#1c1917}
 
-        /* DROP ZONE */
-        .drop-zone{border:3px dashed rgba(59,130,246,.25);border-radius:1.5rem;padding:40px 20px;text-align:center;display:none;transition:all .3s}
-        body.eon .drop-zone{display:block}
-        .drop-zone.dragover{border-color:rgba(59,130,246,.6);background:rgba(59,130,246,.04)}
-    </style>
+/* Drag handle */
+.drag-handle{display:none;position:absolute;top:8px;left:8px;z-index:40;width:32px;height:32px;border-radius:8px;background:#fff;border:1px solid #e7e5e4;align-items:center;justify-content:center;cursor:grab;color:#a8a29e;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:all .2s}
+body.eon .drag-handle{display:flex}
+body.eon .drag-handle:hover{background:#1c1917;color:#fff;border-color:#1c1917}
+.drag-handle:active{cursor:grabbing}
+
+/* Insert zones */
+.insert-zone{height:0;overflow:hidden;transition:all .3s cubic-bezier(.16,1,.3,1);position:relative}
+body.eon .insert-zone{height:44px}
+.iz-btn{position:absolute;inset:4px;border:2px dashed rgba(59,130,246,.25);border-radius:12px;background:rgba(255,255,255,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;color:rgba(59,130,246,.5);font-size:12px;font-weight:500;transition:all .25s}
+.iz-btn:hover{border-color:rgba(59,130,246,.5);background:rgba(59,130,246,.06);color:rgba(59,130,246,.8)}
+.insert-zone.drop-active{height:56px}
+.insert-zone.drop-active .iz-btn{border-color:rgba(59,130,246,.6);background:rgba(59,130,246,.1);color:#3b82f6;border-style:solid}
+
+/* Panel & Banner */
+.ebanner{position:fixed;top:64px;left:0;right:0;z-index:45;background:rgba(59,130,246,.08);backdrop-filter:blur(8px);border-bottom:1px solid rgba(59,130,246,.15);padding:8px 16px;text-align:center;font-size:12px;font-weight:500;color:rgba(59,130,246,.8);display:none;transform:translateY(-100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
+body.eon .ebanner{display:block;transform:translateY(0)}
+.epanel{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;background:#1c1917;border-radius:1.25rem;padding:10px 16px;display:flex;align-items:center;gap:8px;box-shadow:0 25px 60px -12px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08);transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .3s;flex-wrap:wrap;justify-content:center;max-width:calc(100vw - 24px)}
+.epanel.away{transform:translateX(-50%) translateY(120px);opacity:0;pointer-events:none}
+.ebtn{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:7px 13px;border-radius:10px;border:none;cursor:pointer;transition:all .25s;white-space:nowrap}
+.ebtn-g{background:rgba(255,255,255,.08);color:#fff}.ebtn-g:hover{background:rgba(255,255,255,.15)}
+.ebtn-p{background:#fff;color:#1c1917}.ebtn-p:hover{background:#f5f5f4;transform:translateY(-1px)}
+.ebtn-d{background:rgba(239,68,68,.12);color:#fca5a5}.ebtn-d:hover{background:rgba(239,68,68,.22)}
+.ebtn-add{background:rgba(59,130,246,.15);color:#93c5fd}.ebtn-add:hover{background:rgba(59,130,246,.3)}
+.edot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.5);flex-shrink:0}
+.edot.off{background:#78716c;box-shadow:none}
+.ecount{background:rgba(255,255,255,.08);color:#fff;font-size:10px;font-weight:600;padding:3px 9px;border-radius:7px;white-space:nowrap}
+body.eon .eimg-ov .epulse{animation:editPulse 2s ease-in-out infinite}
+
+/* Add panel */
+.add-panel{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);z-index:195;background:#fff;border-radius:1.5rem;padding:20px;box-shadow:0 25px 60px -12px rgba(0,0,0,.2);border:1px solid rgba(0,0,0,.06);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.16,1,.3,1);width:min(440px,calc(100vw - 32px))}
+.add-panel.open{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.add-opt{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;border-radius:1rem;border:2px solid #f5f5f4;cursor:pointer;transition:all .25s;background:#fff}
+.add-opt:hover{border-color:#1c1917;background:#fafaf9;transform:translateY(-2px);box-shadow:0 8px 20px -4px rgba(0,0,0,.08)}
+.add-opt-ico{width:40px;height:40px;border-radius:12px;background:#f5f5f4;display:flex;align-items:center;justify-content:center;transition:background .25s}
+.add-opt:hover .add-opt-ico{background:#1c1917}
+.add-opt:hover .add-opt-ico span{color:#fff!important}
+.add-opt span:last-child{font-size:11px;font-weight:600;color:#78716c;text-align:center}
+.add-opt:hover span:last-child{color:#1c1917}
+
+/* PDF */
+.pdf-viewer{position:fixed;inset:0;z-index:250;display:none}.pdf-viewer.open{display:flex}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;background:#1c1917;color:#fff;font-size:12px;font-weight:500;padding:8px 16px;border-radius:10px;border:none;cursor:pointer;transition:all .25s}
+.pdf-btn:hover{background:#292524;transform:translateY(-1px)}
+.drop-zone{border:3px dashed rgba(59,130,246,.25);border-radius:1.5rem;padding:32px 20px;text-align:center;display:none;transition:all .3s}
+body.eon .drop-zone{display:block}
+.drop-zone.dragover{border-color:rgba(59,130,246,.6);background:rgba(59,130,246,.04)}
+</style>
 </head>
 <body class="bg-[#F2F2F2] font-sans text-stone-900 antialiased">
 
-<div class="ebanner"><span class="iconify inline-block w-3.5 h-3.5 mr-1 align-[-3px]" data-icon="lucide:pencil-line"></span>Modo edición — Haz clic en <strong>textos subrayados</strong>, <strong>fotos con cámara</strong>, o usa <strong>+ Agregar</strong> para añadir contenido</div>
+<div class="ebanner"><span class="iconify inline-block w-3.5 h-3.5 mr-1 align-[-3px]" data-icon="lucide:pencil-line"></span>Modo edición — <strong>Arrastra</strong> bloques para mover · Pulsa <strong>+</strong> para agregar · <strong>✕</strong> para eliminar · Clic en textos para editar</div>
 
 <!-- NAV -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="flex items-center justify-between h-16 sm:h-20">
-            <a href="#hero" class="flex items-center gap-2 group">
-                <div class="w-9 h-9 rounded-xl bg-stone-900 flex items-center justify-center text-white font-semibold text-sm group-hover:scale-105 transition-transform duration-300">KM</div>
-                <span class="hidden sm:block font-medium text-sm tracking-tight">Kevin Megias</span>
-            </a>
-            <div class="hidden md:flex items-center bg-white/70 backdrop-blur-xl rounded-full px-2 py-1.5 border border-stone-200/50 shadow-sm">
+            <a href="#hero" class="flex items-center gap-2 group"><div class="w-9 h-9 rounded-xl bg-stone-900 flex items-center justify-center text-white font-semibold text-sm group-hover:scale-105 transition-transform duration-300">KM</div><span class="hidden sm:block font-medium text-sm tracking-tight">Kevin Megias</span></a>
+            <div class="hidden md:flex items-center bg-white/70 backdrop-blur-xl rounded-full px-2 py-1.5 border border-stone-200/50 shadow-sm" id="navLinks">
+                <a href="#hero" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Inicio</a>
                 <a href="#sobre-mi" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Sobre mí</a>
                 <a href="#habilidades" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Habilidades</a>
                 <a href="#experiencia" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Experiencia</a>
@@ -129,7 +141,8 @@
             </div>
         </div>
     </div>
-    <div id="mobMenu" class="md:hidden hidden bg-white/90 backdrop-blur-xl border-t border-stone-200/50 px-4 py-4">
+    <div id="mobMenu" class="md:hidden hidden bg-white/90 backdrop-blur-xl border-t border-stone-200/50 px-4 py-4" id="mobNav">
+        <a href="#hero" class="block py-3 text-sm font-medium text-stone-600 hover:text-stone-900 mnav">Inicio</a>
         <a href="#sobre-mi" class="block py-3 text-sm font-medium text-stone-600 hover:text-stone-900 mnav">Sobre mí</a>
         <a href="#habilidades" class="block py-3 text-sm font-medium text-stone-600 hover:text-stone-900 mnav">Habilidades</a>
         <a href="#experiencia" class="block py-3 text-sm font-medium text-stone-600 hover:text-stone-900 mnav">Experiencia</a>
@@ -138,39 +151,30 @@
     </div>
 </nav>
 
+<!-- ========== MAIN CONTENT (todo movible) ========== -->
+<div id="mainContent">
+
 <!-- HERO -->
-<section id="hero" class="relative flex items-center overflow-hidden" style="min-height:100vh;min-height:100dvh">
+<section id="hero" class="relative flex items-center overflow-hidden" style="min-height:100vh;min-height:100dvh" data-dyn="hero">
     <div class="absolute top-20 right-0 w-[500px] h-[500px] rounded-full bg-stone-300/30 blur-[100px] pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-stone-200/50 blur-[80px] pointer-events-none"></div>
-    <div class="absolute top-32 right-[15%] w-16 h-16 rounded-2xl bg-stone-900/5 anim-fl pointer-events-none hidden lg:block"></div>
-    <div class="absolute bottom-40 right-[25%] w-10 h-10 rounded-full bg-stone-300/40 anim-fl-d pointer-events-none hidden lg:block"></div>
+    <div class="absolute top-32 right-[15%] w-16 h-16 rounded-2xl bg-stone-900/5 afl pointer-events-none hidden lg:block"></div>
+    <div class="absolute bottom-40 right-[25%] w-10 h-10 rounded-full bg-stone-300/40 afl-d pointer-events-none hidden lg:block"></div>
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 w-full py-32">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             <div class="lg:col-span-7 space-y-8">
-                <div class="anim-fiu"><div class="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-stone-200/50 mb-6"><span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" style="animation:pulse-ring 1.5s ease-out infinite"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span><span class="text-xs font-semibold text-stone-600 tracking-wide uppercase">Disponibilidad inmediata</span></div></div>
-                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-[-0.05em] leading-[0.95] anim-fiu"><span data-eid="h-greet">¡Hola! Soy</span><br><span class="text-stone-400" data-eid="h-first">Kevin</span> <span class="inline-block ml-2" data-eid="h-last">Megias</span></h1>
-                <p class="text-lg sm:text-xl font-light text-stone-500 leading-relaxed max-w-xl anim-fiu-d" data-eid="h-desc">Técnico en Sistemas Microinformáticos y Redes, con experiencia real en desarrollo web e investigación. Preparado para aportar soluciones técnicas desde el primer día.</p>
-                <div class="flex flex-wrap gap-4 anim-fiu-d2">
-                    <a href="#contacto" class="inline-flex items-center gap-2 bg-stone-900 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-stone-800 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">Contactar ahora <span class="iconify w-4 h-4" data-icon="lucide:arrow-right"></span></a>
-                    <a href="#sobre-mi" class="inline-flex items-center gap-2 bg-white text-stone-700 text-sm font-medium px-7 py-3.5 rounded-full border border-stone-200 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Conóceme <span class="iconify w-4 h-4" data-icon="lucide:chevron-down"></span></a>
-                </div>
-                <div class="flex gap-8 pt-4 anim-fiu-d2">
-                    <div><div class="text-2xl font-semibold tracking-tight">SMX</div><div class="text-xs text-stone-400 mt-1">Título oficial</div></div>
-                    <div class="w-px bg-stone-200"></div>
-                    <div><div class="text-2xl font-semibold tracking-tight">4<span class="text-stone-400 text-lg"> meses</span></div><div class="text-xs text-stone-400 mt-1">Experiencia FCT</div></div>
-                    <div class="w-px bg-stone-200"></div>
-                    <div><div class="text-2xl font-semibold tracking-tight">3</div><div class="text-xs text-stone-400 mt-1">Idiomas</div></div>
-                </div>
+                <div class="afiu"><div class="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm border border-stone-200/50 mb-6"><span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" style="animation:pulse-ring 1.5s ease-out infinite"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span><span class="text-xs font-semibold text-stone-600 tracking-wide uppercase">Disponibilidad inmediata</span></div></div>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-[-0.05em] leading-[0.95] afiu"><span data-eid="hg">¡Hola! Soy</span><br><span class="text-stone-400" data-eid="hf">Kevin</span> <span class="inline-block ml-2" data-eid="hl">Megias</span></h1>
+                <p class="text-lg sm:text-xl font-light text-stone-500 leading-relaxed max-w-xl afiu-d" data-eid="hd">Técnico en Sistemas Microinformáticos y Redes, con experiencia real en desarrollo web e investigación.</p>
+                <div class="flex flex-wrap gap-4 afiu-d2"><a href="#contacto" class="inline-flex items-center gap-2 bg-stone-900 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-stone-800 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">Contactar ahora <span class="iconify w-4 h-4" data-icon="lucide:arrow-right"></span></a><a href="#sobre-mi" class="inline-flex items-center gap-2 bg-white text-stone-700 text-sm font-medium px-7 py-3.5 rounded-full border border-stone-200 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">Conóceme <span class="iconify w-4 h-4" data-icon="lucide:chevron-down"></span></a></div>
+                <div class="flex gap-8 pt-4 afiu-d2"><div><div class="text-2xl font-semibold tracking-tight">SMX</div><div class="text-xs text-stone-400 mt-1">Título oficial</div></div><div class="w-px bg-stone-200"></div><div><div class="text-2xl font-semibold tracking-tight">4<span class="text-stone-400 text-lg"> meses</span></div><div class="text-xs text-stone-400 mt-1">Experiencia FCT</div></div><div class="w-px bg-stone-200"></div><div><div class="text-2xl font-semibold tracking-tight">3</div><div class="text-xs text-stone-400 mt-1">Idiomas</div></div></div>
             </div>
-            <div class="lg:col-span-5 relative anim-fis">
+            <div class="lg:col-span-5 relative afis">
                 <div class="eimg-w relative h-[420px] sm:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl" data-img-label="Foto principal">
                     <img src="https://picsum.photos/seed/kevin-tech-workspace/800/1000.jpg" alt="Hero" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
                     <div class="eimg-ov rounded-[2rem]"><span class="iconify w-7 h-7 text-white epulse" data-icon="lucide:camera"></span><span class="text-white text-xs font-medium epulse">Cambiar foto</span></div>
-                    <div class="absolute bottom-6 left-6 right-6 glass-dk rounded-2xl p-5 z-10 pointer-events-none">
-                        <div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center"><span class="iconify w-5 h-5 text-white" data-icon="lucide:code-2"></span></div><div><div class="text-white text-sm font-medium">Técnico Especializado</div><div class="text-white/50 text-xs">Redes · Hardware · Desarrollo</div></div></div>
-                        <div class="flex gap-2"><span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">Windows</span><span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">Linux</span><span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">RScript</span><span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">LAN</span></div>
-                    </div>
+                    <div class="absolute bottom-6 left-6 right-6 glass-dk rounded-2xl p-5 z-10 pointer-events-none"><div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center"><span class="iconify w-5 h-5 text-white" data-icon="lucide:code-2"></span></div><div><div class="text-white text-sm font-medium">Técnico Especializado</div><div class="text-white/50 text-xs">Redes · Hardware · Desarrollo</div></div></div><div class="flex gap-2"><span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">Windows</span><span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">Linux</span><span class="text-[10px] font-semibold uppercase tracking-wider text-white/70 bg-white/10 rounded-full px-3 py-1">RScript</span></div></div>
                 </div>
             </div>
         </div>
@@ -179,24 +183,19 @@
 </section>
 
 <!-- SOBRE MÍ -->
-<section id="sobre-mi" class="py-24 sm:py-32">
+<section id="sobre-mi" class="py-24 sm:py-32" data-dyn="about">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-            <div class="lg:col-span-5 reveal">
-                <div class="relative">
-                    <div class="eimg-w rounded-[2rem] overflow-hidden aspect-[4/3]" data-img-label="Foto — Sobre mí"><img src="https://picsum.photos/seed/tech-about-kevin/800/600.jpg" alt="Sobre mí" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"><div class="eimg-ov rounded-[2rem]"><span class="iconify w-7 h-7 text-white epulse" data-icon="lucide:camera"></span><span class="text-white text-xs font-medium epulse">Cambiar foto</span></div></div>
-                    <div class="absolute -bottom-6 -right-4 sm:-right-6 glass rounded-2xl p-5 shadow-lg max-w-[220px]"><div class="flex items-center gap-2 mb-2"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:lightbulb"></span><span class="text-xs font-semibold text-stone-700">Filosofía</span></div><p class="text-xs text-stone-500 leading-relaxed" data-eid="a-phil">Aprender haciendo, resolver con lógica, crecer con cada reto.</p></div>
-                </div>
-            </div>
+            <div class="lg:col-span-5 reveal"><div class="relative"><div class="eimg-w rounded-[2rem] overflow-hidden aspect-[4/3]" data-img-label="Sobre mí"><img src="https://picsum.photos/seed/tech-about-kevin/800/600.jpg" alt="Sobre mí" class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"><div class="eimg-ov rounded-[2rem]"><span class="iconify w-7 h-7 text-white epulse" data-icon="lucide:camera"></span><span class="text-white text-xs font-medium epulse">Cambiar foto</span></div></div><div class="absolute -bottom-6 -right-4 sm:-right-6 glass rounded-2xl p-5 shadow-lg max-w-[220px]"><div class="flex items-center gap-2 mb-2"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:lightbulb"></span><span class="text-xs font-semibold text-stone-700">Filosofía</span></div><p class="text-xs text-stone-500 leading-relaxed" data-eid="aph">Aprender haciendo, resolver con lógica, crecer con cada reto.</p></div></div></div>
             <div class="lg:col-span-7 space-y-6">
-                <div class="reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Sobre mí</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="a-title">Tecnología con <span class="text-stone-400">propósito</span> y solución</h2></div>
-                <p class="text-base sm:text-lg font-light text-stone-500 leading-relaxed reveal reveal-delay-1" data-eid="a-p1">Soy un técnico recién titulado, proactivo y apasionado por la tecnología, con una base sólida en el montaje, mantenimiento y configuración de sistemas informáticos.</p>
-                <p class="text-base sm:text-lg font-light text-stone-500 leading-relaxed reveal reveal-delay-2" data-eid="a-p2">Me considero una persona <strong class="text-stone-700 font-medium">resolutiva</strong> y con gran <strong class="text-stone-700 font-medium">capacidad de adaptación</strong>, cualidades que puse a prueba durante mis prácticas en un entorno de investigación de alto nivel como el Institut de Recerca contra la Leucèmia Josep Carreras.</p>
-                <p class="text-base sm:text-lg font-light text-stone-500 leading-relaxed reveal reveal-delay-3" data-eid="a-p3">Estoy listo para dar el siguiente paso profesional y aportar mi energía a un equipo técnico que valore la iniciativa y el aprendizaje continuo.</p>
+                <div class="reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Sobre mí</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="at">Tecnología con <span class="text-stone-400">propósito</span> y solución</h2></div>
+                <p class="text-base sm:text-lg font-light text-stone-500 leading-relaxed reveal reveal-delay-1" data-eid="ap1">Soy un técnico recién titulado, proactivo y apasionado por la tecnología, con una base sólida en el montaje, mantenimiento y configuración de sistemas informáticos.</p>
+                <p class="text-base sm:text-lg font-light text-stone-500 leading-relaxed reveal reveal-delay-2" data-eid="ap2">Me considero una persona <strong class="text-stone-700 font-medium">resolutiva</strong> y con gran <strong class="text-stone-700 font-medium">capacidad de adaptación</strong>, cualidades que puse a prueba durante mis prácticas en el Institut de Recerca contra la Leucèmia Josep Carreras.</p>
+                <p class="text-base sm:text-lg font-light text-stone-500 leading-relaxed reveal reveal-delay-3" data-eid="ap3">Estoy listo para dar el siguiente paso profesional y aportar mi energía a un equipo técnico que valore la iniciativa y el aprendizaje continuo.</p>
                 <div class="grid sm:grid-cols-3 gap-4 pt-4 reveal reveal-delay-4">
-                    <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-3"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:zap"></span></div><div class="text-sm font-medium" data-eid="a-c1t">Proactivo</div><div class="text-xs text-stone-400 mt-1" data-eid="a-c1d">No espero instrucciones, busco soluciones.</div></div>
-                    <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-3"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:refresh-cw"></span></div><div class="text-sm font-medium" data-eid="a-c2t">Adaptable</div><div class="text-xs text-stone-400 mt-1" data-eid="a-c2d">Me ajusto rápido a nuevos entornos y retos.</div></div>
-                    <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-3"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:target"></span></div><div class="text-sm font-medium" data-eid="a-c3t">Resolutivo</div><div class="text-xs text-stone-400 mt-1" data-eid="a-c3d">Enfocado en encontrar la solución óptima.</div></div>
+                    <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-3"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:zap"></span></div><div class="text-sm font-medium" data-eid="ac1t">Proactivo</div><div class="text-xs text-stone-400 mt-1" data-eid="ac1d">No espero instrucciones, busco soluciones.</div></div>
+                    <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-3"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:refresh-cw"></span></div><div class="text-sm font-medium" data-eid="ac2t">Adaptable</div><div class="text-xs text-stone-400 mt-1" data-eid="ac2d">Me ajusto rápido a nuevos entornos.</div></div>
+                    <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center mb-3"><span class="iconify w-5 h-5 text-stone-700" data-icon="lucide:target"></span></div><div class="text-sm font-medium" data-eid="ac3t">Resolutivo</div><div class="text-xs text-stone-400 mt-1" data-eid="ac3d">Enfocado en la solución óptima.</div></div>
                 </div>
             </div>
         </div>
@@ -204,44 +203,44 @@
 </section>
 
 <!-- HABILIDADES -->
-<section id="habilidades" class="py-24 sm:py-32">
+<section id="habilidades" class="py-24 sm:py-32" data-dyn="skills">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div class="text-center max-w-2xl mx-auto mb-16 reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Competencias</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="sk-title">Habilidades <span class="text-stone-400">técnicas</span></h2><p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="sk-desc">Conocimientos prácticos adquiridos durante mi formación y mi experiencia profesional real.</p></div>
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Competencias</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="sht">Habilidades <span class="text-stone-400">técnicas</span></h2><p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="shd">Conocimientos prácticos adquiridos durante mi formación y experiencia profesional real.</p></div>
         <div class="flex justify-center mb-10 reveal reveal-delay-1"><div class="inline-flex bg-stone-100 rounded-full p-1.5 gap-1"><button class="tab-btn active text-sm font-medium px-6 py-2.5 rounded-full" data-tab="redes"><span class="iconify w-4 h-4 inline-block mr-1.5 align-[-3px]" data-icon="lucide:network"></span>Sistemas y Redes</button><button class="tab-btn text-sm font-medium px-6 py-2.5 rounded-full text-stone-500" data-tab="software"><span class="iconify w-4 h-4 inline-block mr-1.5 align-[-3px]" data-icon="lucide:code"></span>Desarrollo y Software</button></div></div>
         <div id="tab-redes" class="tab-content active"><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard reveal reveal-delay-1"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:cpu"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s1t">Montaje y Mantenimiento</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s1d">Instalación de hardware, detección de averías y sustitución de componentes con precisión y eficiencia.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Hardware</span><span class="text-stone-400">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Diagnóstico</span><span class="text-stone-400">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div></div></div>
-            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard reveal reveal-delay-2"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:router"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s2t">Redes (Xarxas)</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s2d">Configuración de routers, switches, cableado estructurado y gestión de redes locales (LAN).</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Configuración</span><span class="text-stone-400">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Cableado</span><span class="text-stone-400">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div></div></div>
-            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard reveal reveal-delay-3 sm:col-span-2 lg:col-span-1"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:monitor"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s3t">Sistemas Operativos</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s3d">Instalación y administración de Windows (Client/Server) y distribuciones Linux.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Windows</span><span class="text-stone-400">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Linux</span><span class="text-stone-400">75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div></div></div>
+            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard reveal reveal-delay-1"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:cpu"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s1t">Montaje y Mantenimiento</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s1d">Instalación de hardware, detección de averías y sustitución de componentes.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Hardware</span><span class="text-stone-400">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Diagnóstico</span><span class="text-stone-400">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div></div></div>
+            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard reveal reveal-delay-2"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:router"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s2t">Redes (Xarxas)</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s2d">Configuración de routers, switches, cableado estructurado y gestión de LAN.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Configuración</span><span class="text-stone-400">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Cableado</span><span class="text-stone-400">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div></div></div>
+            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard reveal reveal-delay-3 sm:col-span-2 lg:col-span-1"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:monitor"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s3t">Sistemas Operativos</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s3d">Instalación y administración de Windows y distribuciones Linux.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Windows</span><span class="text-stone-400">90%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Linux</span><span class="text-stone-400">75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div></div></div>
         </div></div>
         <div id="tab-software" class="tab-content"><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:bar-chart-3"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s4t">Programación Estadística</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s4d">Experiencia específica en RScript para la gestión, procesamiento y análisis de datos científicos.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">RScript</span><span class="text-stone-400">80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div></div></div>
-            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:globe"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s5t">Entornos Web</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s5d">Creación de interfaces funcionales para la visualización de información y presentación de datos.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">HTML/CSS</span><span class="text-stone-400">75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">R Web (Shiny)</span><span class="text-stone-400">80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div></div></div>
-            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard sm:col-span-2 lg:col-span-1"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:shield-check"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s6t">Seguridad Informática</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s6d">Implementación de copias de seguridad y protocolos básicos de ciberseguridad.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Backups</span><span class="text-stone-400">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Ciberseguridad</span><span class="text-stone-400">65%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div></div></div></div>
+            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:bar-chart-3"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s4t">Programación Estadística</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s4d">Experiencia en RScript para gestión y análisis de datos científicos.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">RScript</span><span class="text-stone-400">80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div></div></div>
+            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:globe"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s5t">Entornos Web</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s5d">Creación de interfaces para visualización de información y datos.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">HTML/CSS</span><span class="text-stone-400">75%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">R Shiny</span><span class="text-stone-400">80%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div></div></div>
+            <div class="bg-white rounded-3xl p-8 border border-stone-200/50 hcard sm:col-span-2 lg:col-span-1"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center mb-5"><span class="iconify w-6 h-6 text-white" data-icon="lucide:shield-check"></span></div><h3 class="text-lg font-medium mb-2" data-eid="s6t">Seguridad Informática</h3><p class="text-sm text-stone-500 leading-relaxed mb-5" data-eid="s6d">Copias de seguridad y protocolos básicos de ciberseguridad.</p><div class="space-y-3"><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Backups</span><span class="text-stone-400">85%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div><div><div class="flex justify-between text-xs mb-1.5"><span class="text-stone-600 font-medium">Ciberseguridad</span><span class="text-stone-400">65%</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div></div></div></div>
         </div></div>
     </div>
 </section>
 
 <!-- EXPERIENCIA -->
-<section id="experiencia" class="py-24 sm:py-32">
+<section id="experiencia" class="py-24 sm:py-32" data-dyn="exp">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
             <div class="lg:col-span-4 lg:sticky lg:top-32 lg:self-start reveal">
                 <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Trayectoria</span>
-                <h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="ex-title">Experiencia <span class="text-stone-400">profesional</span></h2>
-                <p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="ex-desc">Mi primera experiencia real fue en un entorno de investigación puntero, donde demostré que la formación se traduce en resultados.</p>
+                <h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="ext">Experiencia <span class="text-stone-400">profesional</span></h2>
+                <p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="exd">Mi primera experiencia real fue en un entorno de investigación puntero.</p>
                 <div class="mt-8 space-y-3">
-                    <button class="accordion-trigger w-full text-left bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="flex items-center justify-between"><span class="text-sm font-medium">¿Qué aprendí en FCT?</span><span class="acc-ico iconify w-5 h-5 text-stone-400" data-icon="lucide:plus"></span></div><div class="acc-cont"><p class="text-sm text-stone-500 leading-relaxed pt-4" data-eid="ex-a1">Durante mis prácticas FCT aprendí a trabajar en un entorno multidisciplinar donde la tecnología está al servicio de la ciencia.</p></div></button>
-                    <button class="accordion-trigger w-full text-left bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="flex items-center justify-between"><span class="text-sm font-medium">¿Qué valor aporto?</span><span class="acc-ico iconify w-5 h-5 text-stone-400" data-icon="lucide:plus"></span></div><div class="acc-cont"><p class="text-sm text-stone-500 leading-relaxed pt-4" data-eid="ex-a2">Aporto una combinación única de formación técnica reciente y experiencia real en un entorno exigente.</p></div></button>
+                    <button class="accordion-trigger w-full text-left bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="flex items-center justify-between"><span class="text-sm font-medium">¿Qué aprendí en FCT?</span><span class="acc-i iconify w-5 h-5 text-stone-400" data-icon="lucide:plus"></span></div><div class="acc-c"><p class="text-sm text-stone-500 leading-relaxed pt-4" data-eid="exa1">Aprendí a trabajar en un entorno multidisciplinar donde la tecnología está al servicio de la ciencia.</p></div></button>
+                    <button class="accordion-trigger w-full text-left bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="flex items-center justify-between"><span class="text-sm font-medium">¿Qué valor aporto?</span><span class="acc-i iconify w-5 h-5 text-stone-400" data-icon="lucide:plus"></span></div><div class="acc-c"><p class="text-sm text-stone-500 leading-relaxed pt-4" data-eid="exa2">Formación técnica reciente y experiencia real en un entorno exigente.</p></div></button>
                 </div>
             </div>
             <div class="lg:col-span-8 reveal reveal-delay-2">
                 <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-stone-200/50 shadow-sm hcard">
-                    <div class="flex flex-wrap items-start justify-between gap-4 mb-8"><div class="flex items-center gap-4"><div class="w-14 h-14 rounded-2xl bg-stone-100 flex items-center justify-center flex-shrink-0"><span class="iconify w-7 h-7 text-stone-700" data-icon="lucide:flask-conical"></span></div><div><h3 class="text-xl font-medium" data-eid="ex-job">Desarrollador de Aplicación Web</h3><p class="text-sm text-stone-500 mt-0.5" data-eid="ex-sub">Prácticas FCT</p></div></div><div class="flex flex-col items-end gap-1"><span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-green-50 text-green-700 px-3 py-1.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Completado</span><span class="text-xs text-stone-400">4 meses</span></div></div>
-                    <div class="bg-stone-50 rounded-2xl p-6 mb-8"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:building-2"></span></div><div><div class="text-sm font-medium" data-eid="ex-comp">Institut de Recerca contra la Leucèmia Josep Carreras</div><div class="text-xs text-stone-400 mt-1" data-eid="ex-cd">Centro de investigación oncológica de referencia internacional</div></div></div></div>
+                    <div class="flex flex-wrap items-start justify-between gap-4 mb-8"><div class="flex items-center gap-4"><div class="w-14 h-14 rounded-2xl bg-stone-100 flex items-center justify-center flex-shrink-0"><span class="iconify w-7 h-7 text-stone-700" data-icon="lucide:flask-conical"></span></div><div><h3 class="text-xl font-medium" data-eid="exj">Desarrollador de Aplicación Web</h3><p class="text-sm text-stone-500 mt-0.5" data-eid="exs">Prácticas FCT</p></div></div><div class="flex flex-col items-end gap-1"><span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-green-50 text-green-700 px-3 py-1.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Completado</span><span class="text-xs text-stone-400">4 meses</span></div></div>
+                    <div class="bg-stone-50 rounded-2xl p-6 mb-8"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm flex-shrink-0"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:building-2"></span></div><div><div class="text-sm font-medium" data-eid="exc">Institut de Recerca contra la Leucèmia Josep Carreras</div><div class="text-xs text-stone-400 mt-1" data-eid="excd">Centro de investigación oncológica de referencia internacional</div></div></div></div>
                     <div class="space-y-5">
-                        <div class="flex gap-4"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-white text-xs font-bold">1</span></div><div><h4 class="text-sm font-medium mb-1" data-eid="ex-t1t">Diseño y desarrollo web con RScript</h4><p class="text-sm text-stone-500 leading-relaxed" data-eid="ex-t1d">Desarrollo completo de una página web técnica utilizando RScript.</p></div></div>
-                        <div class="flex gap-4"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-white text-xs font-bold">2</span></div><div><h4 class="text-sm font-medium mb-1" data-eid="ex-t2t">Colaboración con equipo de investigación</h4><p class="text-sm text-stone-500 leading-relaxed" data-eid="ex-t2d">Trabajo directo con investigadores para digitalizar y facilitar el acceso a sus datos.</p></div></div>
-                        <div class="flex gap-4"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-white text-xs font-bold">3</span></div><div><h4 class="text-sm font-medium mb-1" data-eid="ex-t3t">Gestión de datos y optimización</h4><p class="text-sm text-stone-500 leading-relaxed" data-eid="ex-t3d">Gestión de bases de datos y optimización de scripts para visualización de resultados.</p></div></div>
+                        <div class="flex gap-4"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-white text-xs font-bold">1</span></div><div><h4 class="text-sm font-medium mb-1" data-eid="et1t">Diseño y desarrollo web con RScript</h4><p class="text-sm text-stone-500 leading-relaxed" data-eid="et1d">Desarrollo completo de una página web técnica.</p></div></div>
+                        <div class="flex gap-4"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-white text-xs font-bold">2</span></div><div><h4 class="text-sm font-medium mb-1" data-eid="et2t">Colaboración con equipo de investigación</h4><p class="text-sm text-stone-500 leading-relaxed" data-eid="et2d">Trabajo directo con investigadores para digitalizar datos.</p></div></div>
+                        <div class="flex gap-4"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="text-white text-xs font-bold">3</span></div><div><h4 class="text-sm font-medium mb-1" data-eid="et3t">Gestión de datos y optimización</h4><p class="text-sm text-stone-500 leading-relaxed" data-eid="et3d">Gestión de bases de datos y optimización de scripts.</p></div></div>
                     </div>
                     <div class="mt-8 pt-6 border-t border-stone-100"><div class="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-3">Tecnologías utilizadas</div><div class="flex flex-wrap gap-2"><span class="text-xs font-medium bg-stone-100 text-stone-600 px-3 py-1.5 rounded-full">RScript</span><span class="text-xs font-medium bg-stone-100 text-stone-600 px-3 py-1.5 rounded-full">R Shiny</span><span class="text-xs font-medium bg-stone-100 text-stone-600 px-3 py-1.5 rounded-full">Bases de datos</span><span class="text-xs font-medium bg-stone-100 text-stone-600 px-3 py-1.5 rounded-full">Git</span></div></div>
                 </div>
@@ -251,13 +250,13 @@
 </section>
 
 <!-- FORMACIÓN -->
-<section id="formacion" class="py-24 sm:py-32">
+<section id="formacion" class="py-24 sm:py-32" data-dyn="edu">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
             <div class="lg:col-span-5 reveal">
                 <span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Estudios</span>
-                <h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="ed-title">Formación <span class="text-stone-400">académica</span></h2>
-                <p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="ed-desc">Mi recorrido formativo me ha proporcionado una base técnica sólida y versátil.</p>
+                <h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="edt">Formación <span class="text-stone-400">académica</span></h2>
+                <p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="edd">Mi recorrido formativo me ha proporcionado una base técnica sólida.</p>
                 <div class="mt-10"><div class="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-4">Idiomas</div><div class="space-y-4">
                     <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><span class="text-lg">🇪🇸</span><div><div class="text-sm font-medium">Castellano</div><div class="text-xs text-stone-400">Nativo</div></div></div><div class="flex gap-1"><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div></div></div></div>
                     <div class="bg-white rounded-2xl p-5 border border-stone-200/50 hcard"><div class="flex items-center justify-between"><div class="flex items-center gap-3"><span class="text-lg">🇦🇩</span><div><div class="text-sm font-medium">Catalán</div><div class="text-xs text-stone-400">Nativo</div></div></div><div class="flex gap-1"><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div><div class="w-2.5 h-2.5 rounded-full bg-stone-900"></div></div></div></div>
@@ -265,43 +264,37 @@
                 </div></div>
             </div>
             <div class="lg:col-span-7 space-y-6 reveal reveal-delay-2">
-                <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-stone-200/50 hcard"><div class="flex items-start gap-5"><div class="flex-shrink-0"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center"><span class="iconify w-6 h-6 text-white" data-icon="lucide:graduation-cap"></span></div></div><div class="flex-1"><div class="flex flex-wrap items-start justify-between gap-2 mb-2"><div><h3 class="text-lg font-medium" data-eid="e1t">CFGM Sistemas Microinformáticos y Redes</h3><p class="text-sm text-stone-500" data-eid="e1s">Institut La Ferreria</p></div><span class="inline-flex text-[10px] font-bold uppercase tracking-wider text-stone-500 bg-stone-100 px-3 py-1.5 rounded-full">Título oficial</span></div><p class="text-sm text-stone-400 mb-4" data-eid="e1l">Montcada i Reixac, Barcelona</p><p class="text-sm text-stone-500 leading-relaxed" data-eid="e1d">Formación completa en montaje y mantenimiento de equipos, configuración de redes locales, administración de sistemas operativos, fundamentos de seguridad informática y desarrollo web básico.</p><div class="flex flex-wrap gap-2 mt-5"><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Hardware</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Redes LAN</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Windows Server</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Linux</span></div></div></div></div>
-                <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-stone-200/50 hcard"><div class="flex items-start gap-5"><div class="flex-shrink-0"><div class="w-12 h-12 rounded-2xl bg-stone-100 flex items-center justify-center"><span class="iconify w-6 h-6 text-stone-700" data-icon="lucide:wrench"></span></div></div><div class="flex-1"><div class="flex flex-wrap items-start justify-between gap-2 mb-2"><div><h3 class="text-lg font-medium" data-eid="e2t">PFI Auxiliar de Montaje y Mantenimiento</h3><p class="text-sm text-stone-500" data-eid="e2s">Institut La Ferreria</p></div><span class="inline-flex text-[10px] font-bold uppercase tracking-wider text-stone-500 bg-stone-100 px-3 py-1.5 rounded-full">Prácticas</span></div><p class="text-sm text-stone-400 mb-4" data-eid="e2l">Montcada i Reixac, Barcelona</p><p class="text-sm text-stone-500 leading-relaxed" data-eid="e2d">Programa de Formación en Centros de Trabajo enfocado en el montaje y mantenimiento de equipos informáticos.</p></div></div></div>
+                <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-stone-200/50 hcard"><div class="flex items-start gap-5"><div class="flex-shrink-0"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center"><span class="iconify w-6 h-6 text-white" data-icon="lucide:graduation-cap"></span></div></div><div class="flex-1"><div class="flex flex-wrap items-start justify-between gap-2 mb-2"><div><h3 class="text-lg font-medium" data-eid="e1t">CFGM Sistemas Microinformáticos y Redes</h3><p class="text-sm text-stone-500" data-eid="e1s">Institut La Ferreria</p></div><span class="inline-flex text-[10px] font-bold uppercase tracking-wider text-stone-500 bg-stone-100 px-3 py-1.5 rounded-full">Título oficial</span></div><p class="text-sm text-stone-400 mb-4">Montcada i Reixac, Barcelona</p><p class="text-sm text-stone-500 leading-relaxed" data-eid="e1d">Formación completa en montaje, mantenimiento, redes, sistemas operativos y seguridad.</p><div class="flex flex-wrap gap-2 mt-5"><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Hardware</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Redes LAN</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Windows Server</span><span class="text-[10px] font-semibold uppercase tracking-wider text-stone-500 bg-stone-50 px-3 py-1.5 rounded-full">Linux</span></div></div></div></div>
+                <div class="bg-white rounded-[2rem] p-8 sm:p-10 border border-stone-200/50 hcard"><div class="flex items-start gap-5"><div class="flex-shrink-0"><div class="w-12 h-12 rounded-2xl bg-stone-100 flex items-center justify-center"><span class="iconify w-6 h-6 text-stone-700" data-icon="lucide:wrench"></span></div></div><div class="flex-1"><div class="flex flex-wrap items-start justify-between gap-2 mb-2"><div><h3 class="text-lg font-medium" data-eid="e2t">PFI Auxiliar de Montaje y Mantenimiento</h3><p class="text-sm text-stone-500" data-eid="e2s">Institut La Ferreria</p></div><span class="inline-flex text-[10px] font-bold uppercase tracking-wider text-stone-500 bg-stone-100 px-3 py-1.5 rounded-full">Prácticas</span></div><p class="text-sm text-stone-400 mb-4">Montcada i Reixac, Barcelona</p><p class="text-sm text-stone-500 leading-relaxed" data-eid="e2d">Programa de Formación en Centros de Trabajo enfocado en montaje y mantenimiento de equipos.</p></div></div></div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto" class="py-24 sm:py-32">
+<section id="contacto" class="py-24 sm:py-32" data-dyn="contact">
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="bg-stone-900 rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-20 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-white/5 blur-[100px] pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-white/3 blur-[80px] pointer-events-none"></div>
             <div class="relative grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div class="reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-white/40">Contacto</span><h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.025em] leading-[1.1] text-white mt-3" data-eid="ct-title">¿Buscas a alguien con <span class="text-white/40">ganas de trabajar</span>?</h2><p class="text-base font-light text-white/50 leading-relaxed mt-6" data-eid="ct-desc">Tengo disponibilidad inmediata y muchísimas ganas de demostrar lo que sé hacer.</p>
+                <div class="reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-white/40">Contacto</span><h2 class="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-[-0.025em] leading-[1.1] text-white mt-3" data-eid="ctt">¿Buscas a alguien con <span class="text-white/40">ganas de trabajar</span>?</h2><p class="text-base font-light text-white/50 leading-relaxed mt-6" data-eid="ctd">Tengo disponibilidad inmediata y muchísimas ganas de demostrar lo que sé hacer.</p>
                     <div class="space-y-4 mt-8">
-                        <a href="mailto:megiasalvarez.kevin@gmail.com" class="flex items-center gap-4 text-white/70 hover:text-white transition-colors group"><div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/15 transition-colors"><span class="iconify w-5 h-5" data-icon="lucide:mail"></span></div><div><div class="text-xs text-white/40 mb-0.5">Email</div><div class="text-sm font-medium" data-eid="ct-email">megiasalvarez.kevin@gmail.com</div></div></a>
-                        <div class="flex items-center gap-4 text-white/70"><div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center"><span class="iconify w-5 h-5" data-icon="lucide:map-pin"></span></div><div><div class="text-xs text-white/40 mb-0.5">Ubicación</div><div class="text-sm font-medium" data-eid="ct-loc">Montcada i Reixac, Barcelona</div></div></div>
-                        <div class="flex items-center gap-4 text-white/70"><div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center"><span class="iconify w-5 h-5" data-icon="lucide:clock"></span></div><div><div class="text-xs text-white/40 mb-0.5">Disponibilidad</div><div class="text-sm font-medium flex items-center gap-2">Inmediata<span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" style="animation:pulse-ring 1.5s ease-out infinite"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span></div></div></div>
+                        <a href="mailto:megiasalvarez.kevin@gmail.com" class="flex items-center gap-4 text-white/70 hover:text-white transition-colors group"><div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/15"><span class="iconify w-5 h-5" data-icon="lucide:mail"></span></div><div><div class="text-xs text-white/40 mb-0.5">Email</div><div class="text-sm font-medium" data-eid="cte">megiasalvarez.kevin@gmail.com</div></div></a>
+                        <div class="flex items-center gap-4 text-white/70"><div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center"><span class="iconify w-5 h-5" data-icon="lucide:map-pin"></span></div><div><div class="text-xs text-white/40 mb-0.5">Ubicación</div><div class="text-sm font-medium" data-eid="ctl">Montcada i Reixac, Barcelona</div></div></div>
                     </div>
                 </div>
-                <div class="reveal reveal-delay-2">
-                    <form id="contactForm" class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10"><div class="space-y-4"><div><label class="block text-xs font-medium text-white/50 mb-2">Tu nombre</label><input type="text" required placeholder="¿Cómo te llamas?" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all"></div><div><label class="block text-xs font-medium text-white/50 mb-2">Tu email</label><input type="email" required placeholder="tu@empresa.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all"></div><div><label class="block text-xs font-medium text-white/50 mb-2">Mensaje</label><textarea required rows="4" placeholder="Cuéntame sobre la posición o proyecto..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all resize-none"></textarea></div><button type="submit" class="w-full bg-white text-stone-900 text-sm font-semibold py-3.5 rounded-xl hover:bg-white/90 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">Enviar mensaje<span class="iconify w-4 h-4" data-icon="lucide:send"></span></button></div></form>
-                </div>
+                <div class="reveal reveal-delay-2"><form id="contactForm" class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10"><div class="space-y-4"><div><label class="block text-xs font-medium text-white/50 mb-2">Tu nombre</label><input type="text" required placeholder="¿Cómo te llamas?" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all"></div><div><label class="block text-xs font-medium text-white/50 mb-2">Tu email</label><input type="email" required placeholder="tu@empresa.com" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all"></div><div><label class="block text-xs font-medium text-white/50 mb-2">Mensaje</label><textarea required rows="4" placeholder="Cuéntame sobre la posición..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-all resize-none"></textarea></div><button type="submit" class="w-full bg-white text-stone-900 text-sm font-semibold py-3.5 rounded-xl hover:bg-white/90 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">Enviar mensaje<span class="iconify w-4 h-4" data-icon="lucide:send"></span></button></div></form></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CONTENIDO DINÁMICO -->
-<div id="dynArea"></div>
+</div><!-- /mainContent -->
 
-<!-- DROP ZONE (solo en edición) -->
+<!-- DROP ZONE -->
 <div class="drop-zone max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 mb-8" id="dropZone">
-    <span class="iconify w-8 h-8 text-blue-300 mx-auto mb-2" data-icon="lucide:plus-circle"></span>
-    <p class="text-sm font-medium text-blue-400">Arrastra fotos o PDFs aquí para agregarlos</p>
-    <p class="text-xs text-blue-300 mt-1">O usa el botón + Agregar de la barra inferior</p>
+    <span class="iconify w-7 h-7 text-blue-300 mx-auto mb-2" data-icon="lucide:upload-cloud"></span>
+    <p class="text-sm font-medium text-blue-400">Arrastra fotos o PDFs aquí</p>
 </div>
 
 <!-- FOOTER -->
@@ -309,48 +302,31 @@
     <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center text-white font-semibold text-xs">KM</div><span class="text-sm text-stone-400">Kevin Megias Alvarez</span></div>
-            <p class="text-xs text-stone-400" data-eid="ft">© 2025 — Portafolio profesional. Hecho con dedicación.</p>
+            <p class="text-xs text-stone-400" data-eid="ftxt">© 2025 — Portafolio profesional. Hecho con dedicación.</p>
             <a href="#hero" class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center hover:bg-stone-200 transition-colors"><span class="iconify w-4 h-4 text-stone-600" data-icon="lucide:arrow-up"></span></a>
         </div>
     </div>
 </footer>
 
-<!-- MODAL CONTACTO -->
-<div id="successModal" class="modal-ov fixed inset-0 z-[100] flex items-center justify-center p-4"><div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="modalBg"></div><div class="modal-pn relative bg-white rounded-[2rem] p-8 sm:p-10 max-w-md w-full shadow-2xl"><div class="text-center"><div class="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5"><span class="iconify w-8 h-8 text-green-500" data-icon="lucide:check-circle-2"></span></div><h3 class="text-xl font-medium mb-2">¡Mensaje enviado!</h3><p class="text-sm text-stone-500 leading-relaxed mb-6">Gracias por tu interés. Me pondré en contacto contigo lo antes posible.</p><button id="closeModal" class="bg-stone-900 text-white text-sm font-medium px-8 py-3 rounded-full hover:bg-stone-800 transition-colors">Entendido</button></div></div></div>
-
-<!-- TOAST -->
-<div id="toast" class="toast fixed bottom-24 right-6 z-[90] glass rounded-2xl p-5 shadow-xl max-w-sm pointer-events-none"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0"><span class="iconify w-4 h-4 text-green-600" data-icon="lucide:check"></span></div><div><div class="text-sm font-medium">¡Enviado correctamente!</div><div class="text-xs text-stone-400">Te responderé pronto.</div></div></div></div>
+<!-- MODAL -->
+<div id="successModal" class="modal-ov fixed inset-0 z-[100] flex items-center justify-center p-4"><div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="modalBg"></div><div class="modal-pn relative bg-white rounded-[2rem] p-8 sm:p-10 max-w-md w-full shadow-2xl"><div class="text-center"><div class="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5"><span class="iconify w-8 h-8 text-green-500" data-icon="lucide:check-circle-2"></span></div><h3 class="text-xl font-medium mb-2">¡Mensaje enviado!</h3><p class="text-sm text-stone-500 leading-relaxed mb-6">Gracias por tu interés.</p><button id="closeModal" class="bg-stone-900 text-white text-sm font-medium px-8 py-3 rounded-full hover:bg-stone-800 transition-colors">Entendido</button></div></div></div>
+<div id="toast" class="toast fixed bottom-24 right-6 z-[90] glass rounded-2xl p-5 shadow-xl max-w-sm pointer-events-none"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0"><span class="iconify w-4 h-4 text-green-600" data-icon="lucide:check"></span></div><div><div class="text-sm font-medium">¡Enviado!</div><div class="text-xs text-stone-400">Te responderé pronto.</div></div></div></div>
 
 <!-- PDF VIEWER -->
-<div id="pdfViewer" class="pdf-viewer">
-    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="pdfBg"></div>
-    <div class="absolute inset-3 sm:inset-6 bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col" style="z-index:251">
-        <div class="flex items-center justify-between px-5 py-3 border-b border-stone-100 flex-shrink-0">
-            <div class="flex items-center gap-3"><span class="iconify w-5 h-5 text-red-500" data-icon="lucide:file-text"></span><span class="text-sm font-medium" id="pdfTitle">Documento</span></div>
-            <div class="flex items-center gap-2">
-                <a id="pdfDl" href="#" download class="ebtn ebtn-g text-xs"><span class="iconify w-3.5 h-3.5" data-icon="lucide:download"></span>Descargar</a>
-                <button id="pdfClose" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center hover:bg-stone-200 transition-colors"><span class="iconify w-4 h-4 text-stone-600" data-icon="lucide:x"></span></button>
-            </div>
-        </div>
-        <iframe id="pdfFrame" class="flex-1 w-full" style="min-height:0"></iframe>
-    </div>
-</div>
+<div id="pdfViewer" class="pdf-viewer"><div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="pdfBg"></div><div class="absolute inset-3 sm:inset-6 bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col" style="z-index:251"><div class="flex items-center justify-between px-5 py-3 border-b border-stone-100 flex-shrink-0"><div class="flex items-center gap-3"><span class="iconify w-5 h-5 text-red-500" data-icon="lucide:file-text"></span><span class="text-sm font-medium" id="pdfTitle">Documento</span></div><div class="flex items-center gap-2"><a id="pdfDl" href="#" download class="ebtn ebtn-g text-xs"><span class="iconify w-3.5 h-3.5" data-icon="lucide:download"></span>Descargar</a><button id="pdfClose" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center hover:bg-stone-200"><span class="iconify w-4 h-4 text-stone-600" data-icon="lucide:x"></span></button></div></div><iframe id="pdfFrame" class="flex-1 w-full" style="min-height:0"></iframe></div></div>
 
 <!-- ADD PANEL -->
 <div id="addPanel" class="add-panel">
-    <div class="flex items-center justify-between mb-4">
-        <h3 class="text-sm font-semibold text-stone-800">Agregar contenido</h3>
-        <button id="closeAdd" class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center hover:bg-stone-200 transition-colors text-stone-500 text-sm">✕</button>
-    </div>
+    <div class="flex items-center justify-between mb-4"><h3 class="text-sm font-semibold text-stone-800">Agregar contenido</h3><button id="closeAdd" class="w-7 h-7 rounded-full bg-stone-100 flex items-center justify-center hover:bg-stone-200 text-stone-500 text-sm">✕</button></div>
     <div class="grid grid-cols-3 gap-3">
-        <div class="add-opt" data-add="projects"><div class="add-opt-icon"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:folder-open"></span></div><span>Sección Proyectos</span></div>
-        <div class="add-opt" data-add="certs"><div class="add-opt-icon"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:award"></span></div><span>Certificaciones</span></div>
-        <div class="add-opt" data-add="testimonials"><div class="add-opt-icon"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:message-circle"></span></div><span>Testimonios</span></div>
-        <div class="add-opt" data-add="free"><div class="add-opt-icon"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:file-plus"></span></div><span>Sección libre</span></div>
-        <div class="add-opt" data-add="photo"><div class="add-opt-icon"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:image"></span></div><span>Foto individual</span></div>
-        <div class="add-opt" data-add="pdf"><div class="add-opt-icon"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:file-text"></span></div><span>Documento PDF</span></div>
+        <div class="add-opt" data-add="projects"><div class="add-opt-ico"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:folder-open"></span></div><span>Proyectos</span></div>
+        <div class="add-opt" data-add="certs"><div class="add-opt-ico"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:award"></span></div><span>Certificados</span></div>
+        <div class="add-opt" data-add="testimonials"><div class="add-opt-ico"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:message-circle"></span></div><span>Testimonios</span></div>
+        <div class="add-opt" data-add="free"><div class="add-opt-ico"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:file-plus"></span></div><span>Sección libre</span></div>
+        <div class="add-opt" data-add="photo"><div class="add-opt-ico"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:image"></span></div><span>Foto</span></div>
+        <div class="add-opt" data-add="pdf"><div class="add-opt-ico"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:file-text"></span></div><span>PDF</span></div>
     </div>
-    <div class="add-opt mt-3 w-full" data-add="textcard" style="flex-direction:row;gap:10px;padding:12px 16px"><div class="add-opt-icon flex-shrink-0"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:type"></span></div><span style="text-align:left">Tarjeta de texto</span></div>
+    <div class="add-opt mt-3 w-full" data-add="textcard" style="flex-direction:row;gap:10px;padding:12px 16px"><div class="add-opt-ico flex-shrink-0"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:type"></span></div><span style="text-align:left">Tarjeta de texto</span></div>
 </div>
 
 <!-- EDITOR BAR -->
@@ -358,357 +334,347 @@
     <div class="edot off" id="eDot"></div>
     <span class="text-white text-xs font-medium" id="eStat">Edición</span>
     <span class="ecount" id="eCnt"></span>
-    <button class="ebtn ebtn-g" id="eTog"><span class="iconify w-3.5 h-3.5" data-icon="lucide:pencil" id="eTogI"></span><span id="eTogT">Editar</span></button>
+    <button class="ebtn ebtn-g" id="eTog"><span class="iconify w-3.5 h-3.5" data-icon="lucide:pencil" id="eTI"></span><span id="eTT">Editar</span></button>
     <button class="ebtn ebtn-add" id="eAdd"><span class="iconify w-3.5 h-3.5" data-icon="lucide:plus"></span>Agregar</button>
     <button class="ebtn ebtn-p" id="eExp"><span class="iconify w-3.5 h-3.5" data-icon="lucide:download"></span>Exportar</button>
-    <button class="ebtn ebtn-d" id="eRst" title="Restaurar todo"><span class="iconify w-3.5 h-3.5" data-icon="lucide:rotate-ccw"></span></button>
+    <button class="ebtn ebtn-d" id="eRst" title="Restaurar"><span class="iconify w-3.5 h-3.5" data-icon="lucide:rotate-ccw"></span></button>
 </div>
-
 <input type="file" id="eFileIn" accept="image/*" class="hidden">
 <input type="file" id="ePdfIn" accept="application/pdf" class="hidden">
 
 <script>
 // ===== PAGE FUNCTIONS =====
 document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('hide-r')});
-var rObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('active')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.reveal').forEach(function(e){rObs.observe(e)});
-var bObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('active')})},{threshold:.5});
-document.querySelectorAll('.skill-bar-fill').forEach(function(e){bObs.observe(e)});
+var rO=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('active')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+var bO=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('active')})},{threshold:.5});
+function obsAll(){document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('hide-r');rO.observe(e)});document.querySelectorAll('.skill-bar-fill').forEach(function(e){bO.observe(e)})}
+obsAll();
 
 var nb=document.getElementById('navbar');
 window.addEventListener('scroll',function(){if(window.pageYOffset>80)nb.classList.add('bg-white/80','backdrop-blur-xl','border-b','border-stone-200/50','shadow-sm');else nb.classList.remove('bg-white/80','backdrop-blur-xl','border-b','border-stone-200/50','shadow-sm')});
-
 var scs=document.querySelectorAll('section[id]'),nls=document.querySelectorAll('.nav-link');
 window.addEventListener('scroll',function(){var c='';scs.forEach(function(s){if(window.pageYOffset>=s.offsetTop-150)c=s.getAttribute('id')});nls.forEach(function(l){l.classList.remove('active');if(l.getAttribute('href')==='#'+c)l.classList.add('active')})});
-
 document.getElementById('mobBtn').addEventListener('click',function(){document.getElementById('mobMenu').classList.toggle('hidden')});
 document.querySelectorAll('.mnav').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobMenu').classList.add('hidden')})});
-
 document.querySelectorAll('.tab-btn').forEach(function(b){b.addEventListener('click',function(){var t=b.dataset.tab;document.querySelectorAll('.tab-btn').forEach(function(x){x.classList.remove('active');x.classList.add('text-stone-500')});document.querySelectorAll('.tab-content').forEach(function(x){x.classList.remove('active')});b.classList.add('active');b.classList.remove('text-stone-500');document.getElementById('tab-'+t).classList.add('active');setTimeout(function(){document.querySelectorAll('#tab-'+t+' .skill-bar-fill').forEach(function(bar){bar.classList.remove('active');requestAnimationFrame(function(){requestAnimationFrame(function(){bar.classList.add('active')})})})},50)})});
-
-document.querySelectorAll('.accordion-trigger').forEach(function(tr){tr.addEventListener('click',function(){var c=tr.querySelector('.acc-cont'),i=tr.querySelector('.acc-ico'),o=c.classList.contains('open');document.querySelectorAll('.acc-cont').forEach(function(x){x.classList.remove('open')});document.querySelectorAll('.acc-ico').forEach(function(x){x.classList.remove('open')});if(!o){c.classList.add('open');i.classList.add('open')}})});
-
+document.querySelectorAll('.accordion-trigger').forEach(function(tr){tr.addEventListener('click',function(){var c=tr.querySelector('.acc-c'),i=tr.querySelector('.acc-i'),o=c.classList.contains('open');document.querySelectorAll('.acc-c').forEach(function(x){x.classList.remove('open')});document.querySelectorAll('.acc-i').forEach(function(x){x.classList.remove('open')});if(!o){c.classList.add('open');i.classList.add('open')}})});
 document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();var t=document.getElementById('toast');t.classList.add('show');t.style.pointerEvents='auto';e.target.reset();setTimeout(function(){t.classList.remove('show');t.style.pointerEvents='none'},4000)});
 document.getElementById('closeModal').addEventListener('click',function(){document.getElementById('successModal').classList.remove('open')});
 document.getElementById('modalBg').addEventListener('click',function(){document.getElementById('successModal').classList.remove('open')});
-
 document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 
 // ===== EDITOR =====
 try{(function(){
-var IK='kp_imgs',TK='kp_txt',DK='kp_dyn';
-var imgWs=document.querySelectorAll('.eimg-w'),txtEs=document.querySelectorAll('[data-eid]');
-var dynArea=document.getElementById('dynArea'),dropZone=document.getElementById('dropZone');
-var panel=document.getElementById('ePanel'),addP=document.getElementById('addPanel');
-var eTog=document.getElementById('eTog'),dot=document.getElementById('eDot'),stat=document.getElementById('eStat'),cnt=document.getElementById('eCnt');
-var togI=document.getElementById('eTogI'),togT=document.getElementById('eTogT');
+var mc=document.getElementById('mainContent');
+var eon=false,dc=0,sTm=null,targetIZ=null,draggedEl=null,aIdx=null;
 var eFileIn=document.getElementById('eFileIn'),ePdfIn=document.getElementById('ePdfIn');
-var eon=false,aIdx=null,dc=0,sTm=null;
-var oImgs={},oTxts={};
-imgWs.forEach(function(w,i){var img=w.querySelector('img');if(img)oImgs[i]=img.src});
-txtEs.forEach(function(e){oTxts[e.getAttribute('data-eid')]=e.innerHTML});
 
 function nid(){return'd'+(++dc)}
 
-function loadSaved(){
-    try{var s=JSON.parse(localStorage.getItem(IK));if(s)imgWs.forEach(function(w,i){var img=w.querySelector('img');if(img&&s[i])img.src=s[i]})}catch(e){}
-    try{var s=JSON.parse(localStorage.getItem(TK));if(s)txtEs.forEach(function(e){var id=e.getAttribute('data-eid');if(s[id])e.innerHTML=s[id]})}catch(e){}
-    try{var s=localStorage.getItem(DK);if(s)dynArea.innerHTML=s;reObs()}catch(e){}
-    updCnt()
-}
-
-function saveImgs(){var d={};imgWs.forEach(function(w,i){var img=w.querySelector('img');if(img)d[i]=img.src});try{localStorage.setItem(IK,JSON.stringify(d))}catch(e){}}
-function saveTxts(){var d={};txtEs.forEach(function(e){d[e.getAttribute('data-eid')]=e.innerHTML});try{localStorage.setItem(TK,JSON.stringify(d))}catch(e){}}
-function saveDyn(){try{localStorage.setItem(DK,dynArea.innerHTML)}catch(e){notif('⚠️ Contenido demasiado grande para guardar en navegador. Usa Exportar.','warn')}}
-function debSave(){clearTimeout(sTm);sTm=setTimeout(function(){saveTxts();saveDyn();updCnt()},600)}
-
-function updCnt(){
-    var c=0;
-    imgWs.forEach(function(w,i){var img=w.querySelector('img');if(img&&img.src!==oImgs[i])c++});
-    txtEs.forEach(function(e){if(e.innerHTML!==oTxts[e.getAttribute('data-eid')])c++});
-    c+=dynArea.querySelectorAll('[data-dyn]').length;
-    cnt.textContent=c===0?'Listo':c+' editado'+(c>1?'s':'')
-}
-
-function reObs(){
-    dynArea.querySelectorAll('.reveal').forEach(function(e){e.classList.add('hide-r');rObs.observe(e);bObs.observe(e)});
-    dynArea.querySelectorAll('.skill-bar-fill').forEach(function(e){bObs.observe(e)});
-    if(eon){
-        dynArea.querySelectorAll('[data-eid]').forEach(function(e){e.setAttribute('contenteditable','true')});
-        dynArea.querySelectorAll('.eimg-w').forEach(function(w){w.addEventListener('click',imgClick)});
+// === INSERT ZONES ===
+function createIZ(){
+    mc.querySelectorAll('.insert-zone').forEach(function(z){z.remove()});
+    var kids=mc.children;
+    for(var i=0;i<kids.length;i++){
+        var iz=document.createElement('div');
+        iz.className='insert-zone';
+        iz.innerHTML='<button class="iz-btn"><span class="iconify w-4 h-4" data-icon="lucide:plus"></span> Agregar aquí</button>';
+        iz.querySelector('.iz-btn').addEventListener('click',function(e){e.stopPropagation();targetIZ=this.closest('.insert-zone');document.getElementById('addPanel').classList.add('open')});
+        mc.insertBefore(iz,kids[i]);
+        i++ // skip the zone we just inserted
     }
+    // One at the end
+    var izEnd=document.createElement('div');
+    izEnd.className='insert-zone';
+    izEnd.innerHTML='<button class="iz-btn"><span class="iconify w-4 h-4" data-icon="lucide:plus"></span> Agregar aquí</button>';
+    izEnd.querySelector('.iz-btn').addEventListener('click',function(e){e.stopPropagation();targetIZ=this.closest('.insert-zone');document.getElementById('addPanel').classList.add('open')});
+    mc.appendChild(izEnd);
 }
 
-setTimeout(function(){panel.classList.remove('away')},600);
+// === BLOCK EDITOR UI ===
+function addBlockUI(){
+    mc.querySelectorAll(':scope > section, :scope > div[data-dyn]').forEach(function(sec){
+        if(sec.classList.contains('insert-zone'))return;
+        if(sec.querySelector('.edblock-controls'))return;
+        sec.classList.add('edblock');
+        // Controls
+        var ctrl=document.createElement('div');
+        ctrl.className='edblock-controls';
+        ctrl.innerHTML='<button class="edb-btn edb-btn-mv" data-dir="up" title="Mover arriba"><span class="iconify w-3.5 h-3.5" data-icon="lucide:chevron-up"></span></button><button class="edb-btn edb-btn-mv" data-dir="down" title="Mover abajo"><span class="iconify w-3.5 h-3.5" data-icon="lucide:chevron-down"></span></button><button class="edb-btn edb-btn-del" title="Eliminar sección"><span class="iconify w-3.5 h-3.5" data-icon="lucide:trash-2"></span></button>';
+        sec.insertBefore(ctrl,sec.firstChild);
+        // Drag handle
+        var dh=document.createElement('div');
+        dh.className='drag-handle';
+        dh.innerHTML='<span class="iconify w-5 h-5" data-icon="lucide:grip-vertical"></span>';
+        sec.insertBefore(dh,sec.firstChild);
+        // Make draggable
+        sec.setAttribute('draggable','true');
+    });
+}
+function removeBlockUI(){
+    mc.querySelectorAll('.edblock-controls,.drag-handle').forEach(function(e){e.remove()});
+    mc.querySelectorAll('[draggable]').forEach(function(e){e.removeAttribute('draggable')});
+    mc.querySelectorAll('.edblock').forEach(function(e){e.classList.remove('edblock')});
+}
 
-// Toggle edit
+// === DRAG AND DROP ===
+mc.addEventListener('dragstart',function(e){
+    var block=e.target.closest('.edblock');
+    if(!block||!eon)return;
+    // Ignore if started from drag handle or controls
+    draggedEl=block;
+    block.classList.add('dragging');
+    e.dataTransfer.effectAllowed='move';
+    e.dataTransfer.setData('text/plain','');
+});
+mc.addEventListener('dragend',function(){
+    if(draggedEl){draggedEl.classList.remove('dragging');draggedEl=null}
+    mc.querySelectorAll('.insert-zone').forEach(function(z){z.classList.remove('drop-active')});
+});
+mc.addEventListener('dragover',function(e){
+    if(!eon||!draggedEl)return;
+    var iz=e.target.closest('.insert-zone');
+    if(iz){e.preventDefault();e.dataTransfer.dropEffect='move';iz.classList.add('drop-active')}
+});
+mc.addEventListener('dragleave',function(e){
+    var iz=e.target.closest('.insert-zone');
+    if(iz)iz.classList.remove('drop-active');
+});
+mc.addEventListener('drop',function(e){
+    var iz=e.target.closest('.insert-zone');
+    if(iz&&draggedEl){
+        e.preventDefault();e.stopPropagation();
+        iz.classList.remove('drop-active');
+        // Don't drop on self
+        var block=draggedEl;
+        block.classList.remove('dragging');
+        draggedEl=null;
+        iz.before(block);
+        createIZ();addBlockUI();makeEditable();
+        saveStruct();obsAll();
+        notif('Sección movida');
+    }
+});
+
+// === DELETE & MOVE ===
+mc.addEventListener('click',function(e){
+    var del=e.target.closest('.edb-btn-del');
+    if(del&&eon){
+        e.preventDefault();e.stopPropagation();
+        var block=del.closest('.edblock');
+        if(!block)return;
+        block.style.transition='opacity .3s,transform .3s';
+        block.style.opacity='0';block.style.transform='scale(.97)';
+        setTimeout(function(){block.remove();createIZ();saveStruct();notif('Sección eliminada')},300);
+        return;
+    }
+    var mv=e.target.closest('.edb-btn-mv');
+    if(mv&&eon){
+        e.preventDefault();e.stopPropagation();
+        var block=mv.closest('.edblock');if(!block)return;
+        var dir=mv.getAttribute('data-dir');
+        if(dir==='up'){var prev=block.previousElementSibling;if(prev&&prev.classList.contains('insert-zone'))prev=prev.previousElementSibling;if(prev&&prev!==mc.firstElementChild){mc.insertBefore(block,prev)}}
+        else{var next=block.nextElementSibling;if(next&&next.classList.contains('insert-zone'))next=next.nextElementSibling;if(next){var afterNext=next.nextElementSibling;if(afterNext)mc.insertBefore(block,afterNext);else mc.appendChild(block)}}
+        createIZ();addBlockUI();makeEditable();saveStruct();
+        return;
+    }
+});
+
+// === TOGGLE EDIT ===
+var eTog=document.getElementById('eTog'),dot=document.getElementById('eDot'),stat=document.getElementById('eStat'),cnt=document.getElementById('eCnt');
+var eTI=document.getElementById('eTI'),eTT=document.getElementById('eTT');
 eTog.addEventListener('click',function(){
     eon=!eon;
     document.body.classList.toggle('eon',eon);
     dot.classList.toggle('off',!eon);
     stat.textContent=eon?'Editando...':'Edición';
-    togI.setAttribute('data-icon',eon?'lucide:eye-off':'lucide:pencil');
-    togT.textContent=eon?'Vista normal':'Editar';
-    dropZone.style.display=eon?'block':'none';
-    txtEs.forEach(function(e){if(eon)e.setAttribute('contenteditable','true');else{e.removeAttribute('contenteditable');e.blur()}});
-    dynArea.querySelectorAll('[data-eid]').forEach(function(e){if(eon)e.setAttribute('contenteditable','true');else{e.removeAttribute('contenteditable');e.blur()}});
-    if(eon)updCnt();
+    eTI.setAttribute('data-icon',eon?'lucide:eye-off':'lucide:pencil');
+    eTT.textContent=eon?'Vista normal':'Editar';
+    document.getElementById('dropZone').style.display=eon?'block':'none';
+    if(eon){createIZ();addBlockUI();makeEditable()}
+    else{removeBlockUI();mc.querySelectorAll('.insert-zone').forEach(function(z){z.remove()});unmakeEditable()}
 });
+function makeEditable(){
+    mc.querySelectorAll('[data-eid]').forEach(function(e){e.setAttribute('contenteditable','true')});
+}
+function unmakeEditable(){
+    mc.querySelectorAll('[data-eid]').forEach(function(e){e.removeAttribute('contenteditable');e.blur()});
+}
 
-// Text save
-txtEs.forEach(function(e){e.addEventListener('input',function(){if(eon)debSave()})});
-dynArea.addEventListener('input',function(e){if(eon&&e.target.getAttribute('data-eid'))debSave()});
+// === TEXT SAVE ===
+mc.addEventListener('input',function(e){if(eon&&e.target.getAttribute('data-eid'))debSave()});
+function debSave(){clearTimeout(sTm);sTm=setTimeout(saveStruct,800)}
 
-// Image click
-function imgClick(ev){if(!eon)return;ev.preventDefault();ev.stopPropagation();var w=ev.currentTarget;var idx=Array.from(imgWs).indexOf(w);if(idx>=0){aIdx=idx;eFileIn.click()}}
-imgWs.forEach(function(w){w.addEventListener('click',imgClick)});
-
+// === IMAGE EDIT ===
+mc.addEventListener('click',function(e){
+    var w=e.target.closest('.eimg-w');
+    if(w&&eon){e.preventDefault();e.stopPropagation();aIdx=Array.from(mc.querySelectorAll('.eimg-w')).indexOf(w);eFileIn.click()}
+});
 eFileIn.addEventListener('change',function(e){
     var f=e.target.files[0];if(!f||aIdx===null||!f.type.startsWith('image/'))return;
-    var r=new FileReader();r.onload=function(ev){var img=imgWs[aIdx].querySelector('img');if(img){img.src=ev.target.result;saveImgs();updCnt();notif('Foto cambiada')}};r.readAsDataURL(f);eFileIn.value=''
+    var r=new FileReader();r.onload=function(ev){var imgs=mc.querySelectorAll('.eimg-w');if(imgs[aIdx]){var img=imgs[aIdx].querySelector('img');if(img)img.src=ev.target.result;saveStruct();notif('Foto cambiada')}};r.readAsDataURL(f);eFileIn.value='';aIdx=null;
 });
 
-// PDF viewer
-function openPdf(name,data){
-    document.getElementById('pdfTitle').textContent=name;
-    document.getElementById('pdfFrame').src=data;
-    document.getElementById('pdfDl').href=data;
-    document.getElementById('pdfDl').setAttribute('download',name);
-    document.getElementById('pdfViewer').classList.add('open');
-    document.body.style.overflow='hidden';
-}
-function closePdf(){
-    document.getElementById('pdfViewer').classList.remove('open');
-    document.getElementById('pdfFrame').src='';
-    document.body.style.overflow='';
-}
+// === PDF ===
+function openPdf(n,d){document.getElementById('pdfTitle').textContent=n;document.getElementById('pdfFrame').src=d;document.getElementById('pdfDl').href=d;document.getElementById('pdfDl').setAttribute('download',n);document.getElementById('pdfViewer').classList.add('open');document.body.style.overflow='hidden'}
+function closePdf(){document.getElementById('pdfViewer').classList.remove('open');document.getElementById('pdfFrame').src='';document.body.style.overflow=''}
 document.getElementById('pdfClose').addEventListener('click',closePdf);
 document.getElementById('pdfBg').addEventListener('click',closePdf);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closePdf()});
 
-// Add panel
-document.getElementById('eAdd').addEventListener('click',function(){addP.classList.toggle('open')});
-document.getElementById('closeAdd').addEventListener('click',function(){addP.classList.remove('open')});
+// === ADD PANEL ===
+document.getElementById('eAdd').addEventListener('click',function(){targetIZ=null;document.getElementById('addPanel').classList.add('open')});
+document.getElementById('closeAdd').addEventListener('click',function(){document.getElementById('addPanel').classList.remove('open');targetIZ=null});
 
-// Delete dynamic elements
-dynArea.addEventListener('click',function(e){
-    var del=e.target.closest('.edyn-del');
-    if(del&&eon){
-        e.preventDefault();e.stopPropagation();
-        var el=del.closest('[data-dyn]');
-        if(el){el.style.transition='opacity .3s,transform .3s';el.style.opacity='0';el.style.transform='scale(.95)';
-        setTimeout(function(){el.remove();saveDyn();updCnt();notif('Elemento eliminado')},300)}
-    }
-});
-
-// Add content templates
-var TPL={
-projects:function(id){
-    var n=id;
-    return'<section class="py-24 sm:py-32" data-dyn="'+n+'"><button class="edyn-del" title="Eliminar">✕</button><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="text-center max-w-2xl mx-auto mb-16 reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Portafolio</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="'+n+'-title">Mis <span class="text-stone-400">proyectos</span></h2><p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="'+n+'-desc">Una selección de trabajos realizados.</p></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">'
-    +TPL._projCard(n+'a')+
-    +TPL._projCard(n+'b')+
-    +TPL._projCard(n+'c')+
-    '</div></div></section>'
-},
-_projCard:function(id){
-    return'<div class="bg-white rounded-3xl overflow-hidden border border-stone-200/50 hcard reveal" data-dyn="'+id+'"><button class="edyn-del" title="Eliminar">✕</button><div class="eimg-w aspect-[16/10] overflow-hidden" data-img-label="Foto proyecto"><img src="https://picsum.photos/seed/'+id+'/800/500.jpg" alt="Proyecto" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"><div class="eimg-ov"><span class="iconify w-7 h-7 text-white epulse" data-icon="lucide:camera"></span><span class="text-white text-xs font-medium epulse">Cambiar foto</span></div></div><div class="p-6"><span class="text-[10px] font-bold uppercase tracking-wider text-stone-400" data-eid="'+id+'-tag">Tecnología</span><h3 class="text-lg font-medium mt-2 mb-2" data-eid="'+id+'-title">Nombre del proyecto</h3><p class="text-sm text-stone-500 leading-relaxed" data-eid="'+id+'-desc">Descripción breve del proyecto realizado.</p></div></div>'
-},
-certs:function(id){
-    return'<section class="py-24 sm:py-32" data-dyn="'+id+'"><button class="edyn-del" title="Eliminar">✕</button><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="text-center max-w-2xl mx-auto mb-16 reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Formación</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="'+id+'-title"><span class="text-stone-400">Certificaciones</span></h2><p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="'+id+'-desc">Cursos y certificaciones complementarias.</p></div><div class="grid sm:grid-cols-2 gap-6">'
-    +TPL._certCard(id+'a')+
-    +TPL._certCard(id+'b')+
-    '</div></div></section>'
-},
-_certCard:function(id){
-    return'<div class="bg-white rounded-2xl p-6 border border-stone-200/50 hcard reveal" data-dyn="'+id+'"><button class="edyn-del" title="Eliminar">✕</button><div class="flex items-start gap-4"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center flex-shrink-0"><span class="iconify w-6 h-6 text-white" data-icon="lucide:award"></span></div><div><h3 class="text-base font-medium" data-eid="'+id+'-title">Nombre de la certificación</h3><p class="text-sm text-stone-500 mt-0.5" data-eid="'+id+'-org">Institución emisora</p><p class="text-xs text-stone-400 mt-2" data-eid="'+id+'-date">2025</p><p class="text-sm text-stone-500 leading-relaxed mt-2" data-eid="'+id+'-desc">Descripción de lo que certifica.</p></div></div></div>'
-},
-testimonials:function(id){
-    return'<section class="py-24 sm:py-32" data-dyn="'+id+'"><button class="edyn-del" title="Eliminar">✕</button><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="text-center max-w-2xl mx-auto mb-16 reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Opiniones</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="'+id+'-title">Lo que <span class="text-stone-400">dicen de mí</span></h2></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">'
-    +TPL._testCard(id+'a')+
-    +TPL._testCard(id+'b')+
-    +TPL._testCard(id+'c')+
-    '</div></div></section>'
-},
-_testCard:function(id){
-    return'<div class="bg-white rounded-2xl p-6 border border-stone-200/50 hcard reveal" data-dyn="'+id+'"><button class="edyn-del" title="Eliminar">✕</button><span class="iconify w-8 h-8 text-stone-200 mb-3 block" data-icon="lucide:quote"></span><p class="text-sm text-stone-600 leading-relaxed mb-4" data-eid="'+id+'-quote">"Texto del testimonio aquí."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-xs font-bold text-stone-500">??</div><div><div class="text-sm font-medium" data-eid="'+id+'-name">Nombre persona</div><div class="text-xs text-stone-400" data-eid="'+id+'-role">Cargo, Empresa</div></div></div></div>'
-},
-free:function(id){
-    return'<section class="py-24 sm:py-32" data-dyn="'+id+'"><button class="edyn-del" title="Eliminar">✕</button><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Sección</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="'+id+'-title">Título de la <span class="text-stone-400">sección</span></h2><p class="text-base font-light text-stone-500 leading-relaxed mt-4 max-w-2xl" data-eid="'+id+'-desc">Escribe aquí el contenido que quieras. Puedes añadir los párrafos, listas o lo que necesites editando este texto.</p></div></div></section>'
-},
-photo:function(id){
-    return'<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 mb-8" data-dyn="'+id+'"><button class="edyn-del" title="Eliminar">✕</button><div class="eimg-w rounded-[2rem] overflow-hidden aspect-[16/9] reveal" data-img-label="Foto individual"><img src="https://picsum.photos/seed/'+id+'/1200/675.jpg" alt="Foto" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"><div class="eimg-ov rounded-[2rem]"><span class="iconify w-7 h-7 text-white epulse" data-icon="lucide:camera"></span><span class="text-white text-xs font-medium epulse">Cambiar foto</span></div></div><p class="text-center text-sm text-stone-400 mt-3 reveal" data-eid="'+id+'-cap">Pie de foto editable</p></div>'
-},
-textcard:function(id){
-    return'<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 mb-8" data-dyn="'+id+'"><button class="edyn-del" title="Eliminar">✕</button><div class="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/50 hcard reveal"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center flex-shrink-0"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:type"></span></div><div><h3 class="text-base font-medium mb-1" data-eid="'+id+'-title">Título de la tarjeta</h3><p class="text-sm text-stone-500 leading-relaxed" data-eid="'+id+'-desc">Escribe aquí el contenido que quieras mostrar en esta tarjeta de texto.</p></div></div></div></div>'
-},
-pdf:function(id){
-    return'<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 mb-8" data-dyn="'+id+'"><button class="edyn-del" title="Eliminar">✕</button><div class="bg-white rounded-2xl p-6 border border-stone-200/50 hcard reveal" id="'+id+'-card"><div class="flex items-center gap-4"><div class="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center flex-shrink-0"><span class="iconify w-7 h-7 text-red-500" data-icon="lucide:file-text"></span></div><div class="flex-1 min-w-0"><div class="text-sm font-medium truncate" data-eid="'+id+'-name">documento.pdf</div><div class="text-xs text-stone-400 mt-0.5" data-eid="'+id+'-desc">Descripción del documento</div></div><button class="pdf-card-btn" onclick="document.getElementById(\''+id+'-card\')._openPdf()"><span class="iconify w-3.5 h-3.5" data-icon="lucide:eye"></span>Ver PDF</button></div></div></div>'
-}
+// === TEMPLATES ===
+var T={
+projects:function(id){return'<section class="py-24 sm:py-32" data-dyn="'+id+'"><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="text-center max-w-2xl mx-auto mb-16 reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Portafolio</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="'+id+'t">Mis <span class="text-stone-400">proyectos</span></h2><p class="text-base font-light text-stone-500 leading-relaxed mt-4" data-eid="'+id+'d">Una selección de trabajos realizados.</p></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">'+T._pc(id+'a')+T._pc(id+'b')+T._pc(id+'c')+'</div></div></section>'},
+_pc:function(id){return'<div class="bg-white rounded-3xl overflow-hidden border border-stone-200/50 hcard reveal" data-dyn="'+id+'"><div class="eimg-w aspect-[16/10] overflow-hidden" data-img-label="Proyecto"><img src="https://picsum.photos/seed/'+id+'/800/500.jpg" alt="Proyecto" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"><div class="eimg-ov"><span class="iconify w-7 h-7 text-white epulse" data-icon="lucide:camera"></span><span class="text-white text-xs font-medium epulse">Cambiar foto</span></div></div><div class="p-6"><span class="text-[10px] font-bold uppercase tracking-wider text-stone-400" data-eid="'+id+'g">Tecnología</span><h3 class="text-lg font-medium mt-2 mb-2" data-eid="'+id+'t">Nombre del proyecto</h3><p class="text-sm text-stone-500 leading-relaxed" data-eid="'+id+'d">Descripción breve del proyecto.</p></div></div>'},
+certs:function(id){return'<section class="py-24 sm:py-32" data-dyn="'+id+'"><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="text-center max-w-2xl mx-auto mb-16 reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Formación</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="'+id+'t"><span class="text-stone-400">Certificaciones</span></h2></div><div class="grid sm:grid-cols-2 gap-6">'+T._cc(id+'a')+T._cc(id+'b')+'</div></div></section>'},
+_cc:function(id){return'<div class="bg-white rounded-2xl p-6 border border-stone-200/50 hcard reveal" data-dyn="'+id+'"><div class="flex items-start gap-4"><div class="w-12 h-12 rounded-2xl bg-stone-900 flex items-center justify-center flex-shrink-0"><span class="iconify w-6 h-6 text-white" data-icon="lucide:award"></span></div><div><h3 class="text-base font-medium" data-eid="'+id+'t">Nombre certificación</h3><p class="text-sm text-stone-500 mt-0.5" data-eid="'+id+'o">Institución</p><p class="text-xs text-stone-400 mt-2" data-eid="'+id+'y">2025</p><p class="text-sm text-stone-500 leading-relaxed mt-2" data-eid="'+id+'d">Descripción.</p></div></div></div>'},
+testimonials:function(id){return'<section class="py-24 sm:py-32" data-dyn="'+id+'"><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="text-center max-w-2xl mx-auto mb-16 reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Opiniones</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="'+id+'t">Lo que <span class="text-stone-400">dicen de mí</span></h2></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">'+T._tc(id+'a')+T._tc(id+'b')+T._tc(id+'c')+'</div></div></section>'},
+_tc:function(id){return'<div class="bg-white rounded-2xl p-6 border border-stone-200/50 hcard reveal" data-dyn="'+id+'"><span class="iconify w-8 h-8 text-stone-200 mb-3 block" data-icon="lucide:quote"></span><p class="text-sm text-stone-600 leading-relaxed mb-4" data-eid="'+id+'q">"Texto del testimonio."</p><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center text-xs font-bold text-stone-500">?</div><div><div class="text-sm font-medium" data-eid="'+id+'n">Nombre</div><div class="text-xs text-stone-400" data-eid="'+id+'r">Cargo, Empresa</div></div></div></div>'},
+free:function(id){return'<section class="py-24 sm:py-32" data-dyn="'+id+'"><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="reveal"><span class="text-[10px] font-bold uppercase tracking-[0.1em] text-stone-400">Sección</span><h2 class="text-3xl sm:text-4xl font-medium tracking-[-0.025em] leading-[1.2] mt-3" data-eid="'+id+'t">Título de la <span class="text-stone-400">sección</span></h2><p class="text-base font-light text-stone-500 leading-relaxed mt-4 max-w-2xl" data-eid="'+id+'d">Escribe aquí el contenido que quieras.</p></div></div></section>'},
+photo:function(id){return'<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 py-12" data-dyn="'+id+'"><div class="eimg-w rounded-[2rem] overflow-hidden aspect-[16/9] reveal" data-img-label="Foto"><img src="https://picsum.photos/seed/'+id+'/1200/675.jpg" alt="Foto" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"><div class="eimg-ov rounded-[2rem]"><span class="iconify w-7 h-7 text-white epulse" data-icon="lucide:camera"></span><span class="text-white text-xs font-medium epulse">Cambiar foto</span></div></div><p class="text-center text-sm text-stone-400 mt-3 reveal" data-eid="'+id+'c">Pie de foto editable</p></div>'},
+textcard:function(id){return'<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 py-4" data-dyn="'+id+'"><div class="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/50 hcard reveal"><div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-stone-100 flex items-center justify-center flex-shrink-0"><span class="iconify w-5 h-5 text-stone-600" data-icon="lucide:type"></span></div><div><h3 class="text-base font-medium mb-1" data-eid="'+id+'t">Título</h3><p class="text-sm text-stone-500 leading-relaxed" data-eid="'+id+'d">Escribe aquí el contenido.</p></div></div></div></div>'},
+pdf:function(id){return'<div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 py-4" data-dyn="'+id+'"><div class="bg-white rounded-2xl p-6 border border-stone-200/50 hcard reveal" id="'+id+'-card"><div class="flex items-center gap-4"><div class="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center flex-shrink-0"><span class="iconify w-7 h-7 text-red-500" data-icon="lucide:file-text"></span></div><div class="flex-1 min-w-0"><div class="text-sm font-medium truncate" data-eid="'+id+'n">documento.pdf</div><div class="text-xs text-stone-400 mt-0.5" data-eid="'+id+'d">Descripción del documento</div></div><button class="pdf-btn" data-pdf-btn="'+id+'"><span class="iconify w-3.5 h-3.5" data-icon="lucide:eye"></span>Ver PDF</button></div></div></div>'}
 };
 
-// Handle add clicks
+// Handle add
 document.querySelectorAll('[data-add]').forEach(function(opt){
     opt.addEventListener('click',function(){
         var type=opt.getAttribute('data-add');
-        addP.classList.remove('open');
+        document.getElementById('addPanel').classList.remove('open');
         if(type==='pdf'){ePdfIn.click();return}
         var id=nid();
-        var html=TPL[type](id);
-        if(!html)return;
-        dynArea.insertAdjacentHTML('beforeend',html);
-        reObs();
-        saveDyn();
-        updCnt();
+        var tmp=document.createElement('div');tmp.innerHTML=T[type](id);
+        var el=tmp.firstElementChild;
+        if(targetIZ){targetIZ.before(el)}else{mc.appendChild(el)}
+        createIZ();addBlockUI();makeEditable();obsAll();saveStruct();
         notif('Sección agregada');
-        setTimeout(function(){dynArea.lastElementChild.scrollIntoView({behavior:'smooth',block:'start'})},100);
+        setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'start'})},100);
+        targetIZ=null;
     })
 });
 
 // PDF upload
 ePdfIn.addEventListener('change',function(e){
     var f=e.target.files[0];if(!f||!f.type.includes('pdf'))return;
-    if(f.size>10*1024*1024){notif('⚠️ El PDF es muy grande (máx 10MB)');ePdfIn.value='';return}
-    var r=new FileReader();
-    r.onload=function(ev){
-        var id=nid();
-        var html=TPL.pdf(id);
-        dynArea.insertAdjacentHTML('beforeend',html);
+    if(f.size>10*1024*1024){notif('PDF muy grande (máx 10MB)');ePdfIn.value='';return}
+    var r=new FileReader();r.onload=function(ev){
+        var id=nid();var tmp=document.createElement('div');tmp.innerHTML=T.pdf(id);
+        var el=tmp.firstElementChild;
+        if(targetIZ){targetIZ.before(el)}else{mc.appendChild(el)}
         var card=document.getElementById(id+'-card');
-        var nameEl=card.querySelector('[data-eid="'+id+'-name"]');
-        if(nameEl)nameEl.textContent=f.name;
-        card._pdfData=ev.target.result;
-        card._pdfName=f.name;
-        card._openPdf=function(){openPdf(this._pdfName,this._pdfData)};
-        reObs();
-        saveDyn();
-        updCnt();
+        var ne=card.querySelector('[data-eid="'+id+'n"]');if(ne)ne.textContent=f.name;
+        card._pdfData=ev.target.result;card._pdfName=f.name;
+        createIZ();addBlockUI();makeEditable();obsAll();saveStruct();
         notif('PDF agregado: '+f.name);
         setTimeout(function(){card.scrollIntoView({behavior:'smooth',block:'center'})},100);
-    };
-    r.readAsDataURL(f);
-    ePdfIn.value=''
+        targetIZ=null;
+    };r.readAsDataURL(f);ePdfIn.value=''
 });
 
-// Drag & drop on drop zone
-dropZone.addEventListener('dragover',function(e){e.preventDefault();dropZone.classList.add('dragover')});
-dropZone.addEventListener('dragleave',function(){dropZone.classList.remove('dragover')});
-dropZone.addEventListener('drop',function(e){
-    e.preventDefault();dropZone.classList.remove('dragover');
-    if(!eon)return;
-    var files=e.dataTransfer.files;
-    for(var i=0;i<files.length;i++){
-        (function(f){
-            if(f.type.startsWith('image/')){
-                var id=nid();
-                var html=TPL.photo(id);
-                dynArea.insertAdjacentHTML('beforeend',html);
-                var r=new FileReader();
-                r.onload=function(ev){
-                    var img=dynArea.querySelector('[data-dyn="'+id+'"] img');
-                    if(img)img.src=ev.target.result;
-                    reObs();saveDyn();updCnt();
-                };
-                r.readAsDataURL(f);
-                notif('Foto agregada');
-            }else if(f.type.includes('pdf')){
-                if(f.size>10*1024*1024){notif('⚠️ '+f.name+' muy grande');return}
-                var id=nid();
-                var html=TPL.pdf(id);
-                dynArea.insertAdjacentHTML('beforeend',html);
-                var r=new FileReader();
-                r.onload=function(ev){
-                    var card=document.getElementById(id+'-card');
-                    var nameEl=card.querySelector('[data-eid="'+id+'-name"]');
-                    if(nameEl)nameEl.textContent=f.name;
-                    card._pdfData=ev.target.result;
-                    card._pdfName=f.name;
-                    card._openPdf=function(){openPdf(this._pdfName,this._pdfData)};
-                    reObs();saveDyn();updCnt();
-                };
-                r.readAsDataURL(f);
-                notif('PDF agregado: '+f.name);
-            }
-        })(files[i]);
-    }
-    setTimeout(function(){dynArea.lastElementChild&&dynArea.lastElementChild.scrollIntoView({behavior:'smooth',block:'start'})},200);
+// PDF button clicks
+mc.addEventListener('click',function(e){
+    var btn=e.target.closest('[data-pdf-btn]');
+    if(btn&&!eon){var card=document.getElementById(btn.getAttribute('data-pdf-btn')+'-card');if(card&&card._pdfData)openPdf(card._pdfName,card._pdfData)}
 });
 
-// Reset
-document.getElementById('eRst').addEventListener('click',function(){
-    imgWs.forEach(function(w,i){var img=w.querySelector('img');if(img&&oImgs[i])img.src=oImgs[i]});
-    txtEs.forEach(function(e){var id=e.getAttribute('data-eid');if(oTxts[id])e.innerHTML=oTxts[id]});
-    dynArea.innerHTML='';
-    try{localStorage.removeItem(IK);localStorage.removeItem(TK);localStorage.removeItem(DK)}catch(e){}
-    updCnt();notif('Todo restaurado al original');
-});
-
-// Export
-document.getElementById('eExp').addEventListener('click',function(){
-    // Save PDF data into data attributes before export
-    dynArea.querySelectorAll('[id$="-card"]').forEach(function(card){
-        if(card._pdfData){
-            card.setAttribute('data-pdf',card._pdfData);
-            card.setAttribute('data-pdfname',card._pdfName);
-            // Replace button onclick
-            var btn=card.querySelector('.pdf-card-btn');
-            if(btn)btn.setAttribute('onclick','(function(c){var v=document.getElementById("pdfV"),f=document.getElementById("pdfF"),t=document.getElementById("pdfT"),d=document.getElementById("pdfD");t.textContent=c.getAttribute("data-pdfname");f.src=c.getAttribute("data-pdf");d.href=c.getAttribute("data-pdf");d.setAttribute("download",c.getAttribute("data-pdfname"));v.classList.add("open");document.body.style.overflow="hidden"})(this.closest(\'[id$="-card"]\'))');
+// Drag & drop files
+var dz=document.getElementById('dropZone');
+dz.addEventListener('dragover',function(e){e.preventDefault();dz.classList.add('dragover')});
+dz.addEventListener('dragleave',function(){dz.classList.remove('dragover')});
+dz.addEventListener('drop',function(e){
+    e.preventDefault();dz.classList.remove('dragover');if(!eon)return;
+    Array.from(e.dataTransfer.files).forEach(function(f){
+        if(f.type.startsWith('image/')){
+            var id=nid();var tmp=document.createElement('div');tmp.innerHTML=T.photo(id);
+            var el=tmp.firstElementChild;mc.appendChild(el);
+            var r=new FileReader();r.onload=function(ev){var img=el.querySelector('img');if(img)img.src=ev.target.result;createIZ();addBlockUI();makeEditable();obsAll();saveStruct()};
+            r.readAsDataURL(f);notif('Foto agregada');
+        }else if(f.type.includes('pdf')){
+            if(f.size>10*1024*1024){notif('PDF muy grande');return}
+            var id=nid();var tmp=document.createElement('div');tmp.innerHTML=T.pdf(id);
+            var el=tmp.firstElementChild;mc.appendChild(el);
+            var r=new FileReader();r.onload=function(ev){
+                var card=document.getElementById(id+'-card');var ne=card.querySelector('[data-eid="'+id+'n"]');if(ne)ne.textContent=f.name;
+                card._pdfData=ev.target.result;card._pdfName=f.name;
+                createIZ();addBlockUI();makeEditable();obsAll();saveStruct();
+            };r.readAsDataURL(f);notif('PDF agregado: '+f.name);
         }
     });
+    setTimeout(function(){var last=mc.lastElementChild;if(last)last.scrollIntoView({behavior:'smooth',block:'start'})},200);
+});
 
-    var clone=document.documentElement.cloneNode(true);
-    clone.querySelector('body')?.classList.remove('eon');
+// === SAVE/LOAD ===
+function saveStruct(){
+    var clone=mc.cloneNode(true);
+    clone.querySelectorAll('.insert-zone,.edblock-controls,.drag-handle').forEach(function(e){e.remove()});
+    clone.querySelectorAll('[draggable]').forEach(function(e){e.removeAttribute('draggable')});
+    clone.querySelectorAll('.edblock').forEach(function(e){e.classList.remove('edblock')});
+    clone.querySelectorAll('[data-pdf]').forEach(function(e){e.setAttribute('data-pdf','')});
+    try{localStorage.setItem('kp_s',clone.innerHTML)}catch(e){notif('⚠️ Almacenamiento lleno. ¡Exporta!','warn')}
+}
+function loadStruct(){
+    var s=localStorage.getItem('kp_s');
+    if(s){mc.innerHTML=s;return true}return false;
+}
+
+// === RESET ===
+document.getElementById('eRst').addEventListener('click',function(){
+    if(!confirm('¿Restaurar todo al estado original? Se perderán todos los cambios.'))return;
+    try{localStorage.removeItem('kp_s')}catch(e){}
+    location.reload();
+});
+
+// === EXPORT ===
+document.getElementById('eExp').addEventListener('click',function(){
+    // Inject PDF data into DOM before export
+    mc.querySelectorAll('[id$="-card"]').forEach(function(card){
+        if(card._pdfData){card.setAttribute('data-pdf',card._pdfData);card.setAttribute('data-pdfname',card._pdfName)}
+    });
+    var clone=mc.cloneNode(true);
+    // Clean editor artifacts
+    clone.querySelectorAll('.insert-zone,.edblock-controls,.drag-handle,.edblock').forEach(function(e){e.remove()});
+    clone.querySelectorAll('[draggable],[contenteditable]').forEach(function(e){e.removeAttribute('draggable');e.removeAttribute('contenteditable')});
+    clone.querySelectorAll('[data-eid],[data-dyn],[data-img-label]').forEach(function(e){e.removeAttribute('data-eid');e.removeAttribute('data-dyn');e.removeAttribute('data-img-label')});
     clone.querySelectorAll('.eimg-ov').forEach(function(e){e.remove()});
     clone.querySelectorAll('.eimg-w').forEach(function(e){e.classList.remove('eimg-w')});
-    clone.querySelectorAll('[contenteditable]').forEach(function(e){e.removeAttribute('contenteditable')});
-    clone.querySelectorAll('[data-eid]').forEach(function(e){e.removeAttribute('data-eid')});
-    clone.querySelectorAll('[data-dyn]').forEach(function(e){e.removeAttribute('data-dyn')});
-    clone.querySelectorAll('.edyn-del').forEach(function(e){e.remove()});
-    clone.querySelectorAll('.ebanner,.drop-zone,#ePanel,#eFileIn,#ePdfIn,#addPanel').forEach(function(e){e.remove()});
     clone.querySelectorAll('.hide-r').forEach(function(e){e.classList.remove('hide-r')});
-    // Fix PDF buttons for standalone
-    clone.querySelectorAll('.pdf-card-btn').forEach(function(btn){
-        var card=btn.closest('[id$="-card"]');
-        if(card&&card.getAttribute('data-pdf')){
-            btn.setAttribute('onclick','(function(c){var v=document.getElementById("pdfV"),f=document.getElementById("pdfF"),t=document.getElementById("pdfT"),d=document.getElementById("pdfD");t.textContent=c.getAttribute("data-pdfname");f.src=c.getAttribute("data-pdf");d.href=c.getAttribute("data-pdf");d.setAttribute("download",c.getAttribute("data-pdfname"));v.classList.add("open");document.body.style.overflow="hidden"})(this.closest(\'[id$="-card"]\'))');
-        }
+    // Fix PDF buttons
+    clone.querySelectorAll('[data-pdf-btn]').forEach(function(btn){
+        var cid=btn.getAttribute('data-pdf-btn')+'-card';
+        btn.setAttribute('onclick','(function(){var c=document.getElementById("'+cid+'");if(c){var v=document.getElementById("pdfV"),f=document.getElementById("pdfF"),t=document.getElementById("pdfT"),d=document.getElementById("pdfD");t.textContent=c.getAttribute("data-pdfname");f.src=c.getAttribute("data-pdf");d.href=c.getAttribute("data-pdf");d.setAttribute("download",c.getAttribute("data-pdfname"));v.classList.add("open");document.body.style.overflow="hidden"}})()');
     });
-    // Make sure PDF viewer has correct IDs in export
-    var pv=clone.querySelector('#pdfViewer');
-    if(pv){pv.id='pdfV';pv.querySelector('iframe').id='pdfF';pv.querySelector('#pdfTitle').id='pdfT';pv.querySelector('#pdfDl').id='pdfD';pv.querySelector('#pdfClose').setAttribute('onclick','document.getElementById("pdfV").classList.remove("open");document.getElementById("pdfF").src="";document.body.style.overflow=""');pv.querySelector('#pdfBg').setAttribute('onclick','document.getElementById("pdfV").classList.remove("open");document.getElementById("pdfF").src="";document.body.style.overflow=""')}
-    // Add escape key handler for export
-    var escScript=clone.createElement('script');
-    escScript.textContent='document.addEventListener("keydown",function(e){if(e.key==="Escape"){var v=document.getElementById("pdfV");if(v&&v.classList.contains("open")){v.classList.remove("open");document.getElementById("pdfF").src="";document.body.style.overflow=""}}})';
-    clone.body.appendChild(escScript);
-
-    var stEl=clone.querySelector('style');
-    if(stEl)stEl.textContent=stEl.textContent.replace(/\/\* EDITOR \*\/[\s\S]*$/,'');
-    clone.querySelectorAll('script').forEach(function(s){if(s.textContent.indexOf('EDITOR')!==-1&&s!==escScript)s.remove()});
-
-    var html='<!DOCTYPE html>\n<html lang="es">'+clone.innerHTML+'</html>';
+    var html='<!DOCTYPE html>\n<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Kevin Megias Alvarez — Portafolio</title><script src="https://cdn.tailwindcss.com"><\/script><script src="https://code.iconify.design/3/3.1.0/iconify.min.js"><\/script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><script>tailwind.config={theme:{extend:{fontFamily:{sans:["Inter","sans-serif"]}}}}<\/script><style>'+document.querySelector('style').textContent.replace(/\/\* ===== EDITOR ===== \*\/[\s\S]*$/,'')+'</style></head><body class="bg-[#F2F2F2] font-sans text-stone-900 antialiased">';
+    html+='<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="flex items-center justify-between h-16 sm:h-20"><a href="#hero" class="flex items-center gap-2 group"><div class="w-9 h-9 rounded-xl bg-stone-900 flex items-center justify-center text-white font-semibold text-sm group-hover:scale-105 transition-transform duration-300">KM</div><span class="hidden sm:block font-medium text-sm tracking-tight">Kevin Megias</span></a><div class="hidden md:flex items-center bg-white/70 backdrop-blur-xl rounded-full px-2 py-1.5 border border-stone-200/50 shadow-sm" id="navLinks"><a href="#hero" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Inicio</a><a href="#sobre-mi" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Sobre mí</a><a href="#habilidades" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Habilidades</a><a href="#experiencia" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Experiencia</a><a href="#formacion" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Formación</a><a href="#contacto" class="nav-link px-4 py-1.5 text-sm font-medium text-stone-600 hover:text-stone-900 rounded-full">Contacto</a></div><a href="#contacto" class="bg-stone-900 text-white text-sm font-medium px-5 py-2.5 rounded-full hover:bg-stone-800 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">Hablemos</a></div></div></nav>';
+    html+=clone.innerHTML;
+    html+='<footer class="py-10 border-t border-stone-200/50"><div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10"><div class="flex flex-col sm:flex-row items-center justify-between gap-4"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center text-white font-semibold text-xs">KM</div><span class="text-sm text-stone-400">Kevin Megias Alvarez</span></div><p class="text-xs text-stone-400">© 2025 — Portafolio profesional.</p><a href="#hero" class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center hover:bg-stone-200 transition-colors"><span class="iconify w-4 h-4 text-stone-600" data-icon="lucide:arrow-up"></span></a></div></div></footer>';
+    html+='<div id="pdfV" class="pdf-viewer"><div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="document.getElementById(\'pdfV\').classList.remove(\'open\');document.getElementById(\'pdfF\').src=\'\';document.body.style.overflow=\'\'"></div><div class="absolute inset-3 sm:inset-6 bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col" style="z-index:251"><div class="flex items-center justify-between px-5 py-3 border-b border-stone-100 flex-shrink-0"><div class="flex items-center gap-3"><span class="iconify w-5 h-5 text-red-500" data-icon="lucide:file-text"></span><span class="text-sm font-medium" id="pdfT">Documento</span></div><div class="flex items-center gap-2"><a id="pdfD" href="#" download class="ebtn ebtn-g text-xs"><span class="iconify w-3.5 h-3.5" data-icon="lucide:download"></span>Descargar</a><button onclick="document.getElementById(\'pdfV\').classList.remove(\'open\');document.getElementById(\'pdfF\').src=\'\';document.body.style.overflow=\'\'" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center hover:bg-stone-200"><span class="iconify w-4 h-4 text-stone-600" data-icon="lucide:x"></span></button></div></div><iframe id="pdfF" class="flex-1 w-full" style="min-height:0"></iframe></div></div>';
+    html+='<script>document.querySelectorAll(".reveal").forEach(function(e){e.classList.add("hide-r")});var rO=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add("active")})},{threshold:.1,rootMargin:"0px 0px -50px 0px"});var bO=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add("active")})},{threshold:.5});document.querySelectorAll(".reveal").forEach(function(e){rO.observe(e)});document.querySelectorAll(".skill-bar-fill").forEach(function(e){bO.observe(e)});var nb=document.getElementById("navbar");window.addEventListener("scroll",function(){if(window.pageYOffset>80)nb.classList.add("bg-white/80","backdrop-blur-xl","border-b","border-stone-200/50","shadow-sm");else nb.classList.remove("bg-white/80","backdrop-blur-xl","border-b","border-stone-200/50","shadow-sm")});var scs=document.querySelectorAll("section[id]"),nls=document.querySelectorAll(".nav-link");window.addEventListener("scroll",function(){var c="";scs.forEach(function(s){if(window.pageYOffset>=s.offsetTop-150)c=s.getAttribute("id")});nls.forEach(function(l){l.classList.remove("active");if(l.getAttribute("href")==="#"+c)l.classList.add("active")})});document.querySelectorAll(".tab-btn").forEach(function(b){b.addEventListener("click",function(){var t=b.dataset.tab;document.querySelectorAll(".tab-btn").forEach(function(x){x.classList.remove("active");x.classList.add("text-stone-500")});document.querySelectorAll(".tab-content").forEach(function(x){x.classList.remove("active")});b.classList.add("active");b.classList.remove("text-stone-500");document.getElementById("tab-"+t).classList.add("active")})});document.querySelectorAll(".accordion-trigger").forEach(function(tr){tr.addEventListener("click",function(){var c=tr.querySelector(".acc-c"),i=tr.querySelector(".acc-i"),o=c.classList.contains("open");document.querySelectorAll(".acc-c").forEach(function(x){x.classList.remove("open")});document.querySelectorAll(".acc-i").forEach(function(x){x.classList.remove("open")});if(!o){c.classList.add("open");i.classList.add("open")}})});document.getElementById("contactForm").addEventListener("submit",function(e){e.preventDefault()});document.querySelectorAll("a[href^=#]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var t=document.querySelector(a.getAttribute("href"));if(t)t.scrollIntoView({behavior:"smooth",block:"start"})})});document.addEventListener("keydown",function(e){if(e.key==="Escape"){var v=document.getElementById("pdfV");if(v&&v.classList.contains("open")){v.classList.remove("open");document.getElementById("pdfF").src="";document.body.style.overflow=""}}})<\/script></body></html>';
     var blob=new Blob([html],{type:'text/html;charset=utf-8'});
-    var url=URL.createObjectURL(blob);
-    var a=document.createElement('a');a.href=url;a.download='kevin-megias-portafolio.html';
+    var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='kevin-megias-portafolio.html';
     document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
-    notif('¡Descargado! Ese archivo es tu portafolio final.');
+    notif('¡Descargado! Archivo final listo para subir.');
 });
 
 function notif(msg,type){
     var old=document.getElementById('eN');if(old)old.remove();
     var n=document.createElement('div');n.id='eN';
-    var bg=type==='warn'?'#92400e':'#1c1917';
-    var ico=type==='warn'?'⚠️':'✓';
-    n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-16px);z-index:300;opacity:0;transition:all .4s cubic-bezier(.16,1,.3,1);background:'+bg+';color:#fff;padding:10px 22px;border-radius:14px;font-size:12px;font-weight:500;box-shadow:0 16px 40px -8px rgba(0,0,0,.3);display:flex;align-items:center;gap:7px;white-space:nowrap;max-width:calc(100vw - 32px);text-align:center;justify-content:center';
-    n.innerHTML=ico+' '+msg;
+    n.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-16px);z-index:300;opacity:0;transition:all .4s cubic-bezier(.16,1,.3,1);background:'+(type==='warn'?'#92400e':'#1c1917')+';color:#fff;padding:10px 22px;border-radius:14px;font-size:12px;font-weight:500;box-shadow:0 16px 40px -8px rgba(0,0,0,.3);display:flex;align-items:center;gap:7px;white-space:nowrap;max-width:calc(100vw - 32px)';
+    n.innerHTML=(type==='warn'?'⚠️':'✓')+' '+msg;
     document.body.appendChild(n);
     requestAnimationFrame(function(){n.style.opacity='1';n.style.transform='translateX(-50%) translateY(0)'});
     setTimeout(function(){n.style.opacity='0';n.style.transform='translateX(-50%) translateY(-16px)';setTimeout(function(){n.remove()},400)},3500);
 }
 
-loadSaved();updCnt();
+// === INIT ===
+var loaded=loadStruct();
+createIZ();obsAll();
+setTimeout(function(){document.getElementById('ePanel').classList.remove('away')},600);
+
 })();
-// Make openPdf global for export
-function openPdf(n,d){document.getElementById('pdfTitle').textContent=n;document.getElementById('pdfFrame').src=d;document.getElementById('pdfDl').href=d;document.getElementById('pdfDl').setAttribute('download',n);document.getElementById('pdfViewer').classList.add('open');document.body.style.overflow='hidden'}
 }catch(err){console.warn('Editor:',err)}
 </script>
 </body>
